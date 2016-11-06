@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :display_name %>
+    <%= f.text_field :display_name %>
+  </div>
+
+  <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
@@ -22,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
@@ -29,6 +39,11 @@
   <div class="field">
     <%= f.label :city %>
     <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %>
+    <%= f.date_select :birthday %>
   </div>
 
   <div class="field">
