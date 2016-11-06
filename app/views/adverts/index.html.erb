@@ -6,8 +6,8 @@
 
 <article>
 <% @adverts.each do |advert| %>
-  <%= advert.advertiser %>
   <%= advert.product %>
+  <%= advert.advertiser %>
   <%= link_to 'Show', advert %>
   <%= link_to 'Edit', edit_advert_path(advert) %>
   <%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %>
