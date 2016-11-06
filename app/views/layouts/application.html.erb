@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Needthat</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<header>
+  		<h1>Need<span class="needthat-colorling">that</span></h1>
+  	</header>
+
+    <main>
+    <%= yield %>
+    </main>
+    
+    <footer>
+    	<small>&copy 2016 Need<span class="needthat-colorling">that</span>.co.za</small>
+    </footer>
+  </body>
+</html>

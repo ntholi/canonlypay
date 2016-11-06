@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @advertiser.first_name %>
+</p>
+
+<p>
+  <strong>Second name:</strong>
+  <%= @advertiser.second_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @advertiser.email %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @advertiser.company_name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @advertiser.city %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @advertiser.phone_number %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @advertiser.website %>
+</p>
+
+<%= link_to 'Edit', edit_advertiser_path(@advertiser) %> |
+<%= link_to 'Back', advertisers_path %>

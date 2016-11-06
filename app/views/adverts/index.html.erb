@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Post for free and get competitive quoatations</h2>
+
+<%= render 'post', post: Post.new %>
+
+<article>
+<% @adverts.each do |advert| %>
+  <%= advert.advertiser %>
+  <%= advert.product %>
+  <%= link_to 'Show', advert %>
+  <%= link_to 'Edit', edit_advert_path(advert) %>
+  <%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+</article>

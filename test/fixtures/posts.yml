@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  min_price: 1.5
+  max_price: 1.5
+  user: one
+  product: one
+
+two:
+  content: MyText
+  min_price: 1.5
+  max_price: 1.5
+  user: two
+  product: two
