@@ -1,13 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Adverts</h2>
+<h1>Adverts</h1>
 
-<% @adverts.each do |advert| %>
-  <article>
-  <%= advert.product %>
-  <%= advert.advertiser %>
-  <%= link_to 'Show', advert %>
-  <%= link_to 'Edit', edit_advert_path(advert) %>
-  <%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </article>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Advertiser</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adverts.each do |advert| %>
+      <tr>
+        <td><%= advert.advertiser %></td>
+        <td><%= advert.product %></td>
+        <td><%= link_to 'Show', advert %></td>
+        <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
+        <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Advert', new_advert_path %>

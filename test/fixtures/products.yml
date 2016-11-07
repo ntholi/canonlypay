@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category: MyString
+  category: one
   name: MyString
   price: 1.5
   year_made: 1
@@ -10,7 +10,7 @@ one:
   advertiser: one
 
 two:
-  category: MyString
+  category: two
   name: MyString
   price: 1.5
   year_made: 1

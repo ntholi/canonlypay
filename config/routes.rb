@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root "home#index" 
+  resources :posts
+  resources :users
+  resources :adverts
+  resources :products
+  resources :advertisers
 
   get 'home/index'
   get 'home/about_us'
@@ -8,10 +12,7 @@ Rails.application.routes.draw do
   get 'home/privacy_policy'
   get 'home/terms_of_use'
 
-  resources :posts
-  resources :users
-  resources :adverts
-  resources :products
-  resources :advertisers
+  root 'home#index' 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
