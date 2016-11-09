@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    collection do
+      post :pre_create
+    end
+  end
   resources :users
   resources :adverts
   resources :products
