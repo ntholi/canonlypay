@@ -1,52 +1,53 @@
 <%= form_for(advertiser) do |f| %>
-  <% if advertiser.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(advertiser.errors.count, "error") %> prohibited this advertiser from being saved:</h2>
+<% if advertiser.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(advertiser.errors.count, "error") %>
+    prohibited this advertiser from being saved:</h2>
 
-      <ul>
-      <% advertiser.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% advertiser.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+<div class="field">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+</div>
 
-  <div class="field">
-    <%= f.label :second_name %>
-    <%= f.text_field :second_name %>
-  </div>
+<div class="field">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+</div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
 
-  <div class="field">
-    <%= f.label :company_name %>
-    <%= f.text_field :company_name %>
-  </div>
+<div class="field">
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+</div>
 
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
+<div class="field">
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+</div>
 
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
-  </div>
+<div class="field">
+  <%= f.label :phone_number %>
+  <%= f.telephone_field :phone_number %>
+</div>
 
-  <div class="field">
-    <%= f.label :website %>
-    <%= f.text_field :website %>
-  </div>
+<div class="field">
+  <%= f.label :website %>
+  <%= f.text_field :website %>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

@@ -3,7 +3,7 @@
 one:
   display_name: MyString
   first_name: MyString
-  second_name: MyString
+  last_name: MyString
   email: MyString
   gender: MyString
   location: MyString
@@ -13,7 +13,7 @@ one:
 two:
   display_name: MyString
   first_name: MyString
-  second_name: MyString
+  last_name: MyString
   email: MyString
   gender: MyString
   location: MyString

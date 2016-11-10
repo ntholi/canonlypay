@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>First name</th>
-      <th>Second name</th>
+      <th>Last name</th>
       <th>Email</th>
       <th>Company name</th>
       <th>Location</th>
@@ -20,7 +20,7 @@
     <% @advertisers.each do |advertiser| %>
       <tr>
         <td><%= advertiser.first_name %></td>
-        <td><%= advertiser.second_name %></td>
+        <td><%= advertiser.last_name %></td>
         <td><%= advertiser.email %></td>
         <td><%= advertiser.company_name %></td>
         <td><%= advertiser.location %></td>

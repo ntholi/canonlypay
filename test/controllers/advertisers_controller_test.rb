@@ -17,7 +17,7 @@ class AdvertisersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create advertiser" do
     assert_difference('Advertiser.count') do
-      post advertisers_url, params: { advertiser: { company_name: @advertiser.company_name, email: @advertiser.email, first_name: @advertiser.first_name, location: @advertiser.location, phone_number: @advertiser.phone_number, second_name: @advertiser.second_name, website: @advertiser.website } }
+      post advertisers_url, params: { advertiser: { company_name: @advertiser.company_name, email: @advertiser.email, first_name: @advertiser.first_name, last_name: @advertiser.last_name, location: @advertiser.location, phone_number: @advertiser.phone_number, website: @advertiser.website } }
     end
 
     assert_redirected_to advertiser_url(Advertiser.last)
@@ -34,7 +34,7 @@ class AdvertisersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update advertiser" do
-    patch advertiser_url(@advertiser), params: { advertiser: { company_name: @advertiser.company_name, email: @advertiser.email, first_name: @advertiser.first_name, location: @advertiser.location, phone_number: @advertiser.phone_number, second_name: @advertiser.second_name, website: @advertiser.website } }
+    patch advertiser_url(@advertiser), params: { advertiser: { company_name: @advertiser.company_name, email: @advertiser.email, first_name: @advertiser.first_name, last_name: @advertiser.last_name, location: @advertiser.location, phone_number: @advertiser.phone_number, website: @advertiser.website } }
     assert_redirected_to advertiser_url(@advertiser)
   end
 

@@ -1,57 +1,58 @@
 <%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(user.errors.count, "error") %>
+    prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :display_name %>
-    <%= f.text_field :display_name %>
-  </div>
+<div class="field">
+  <%= f.label :display_name %>
+  <%= f.text_field :display_name %>
+</div>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+<div class="field">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+</div>
 
-  <div class="field">
-    <%= f.label :second_name %>
-    <%= f.text_field :second_name %>
-  </div>
+<div class="field">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+</div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
 
-  <div class="field">
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
-  </div>
+<div class="field">
+  <%= f.label :gender %>
+  <%= f.select :gender,  User::GENDER_TYPES %>
+</div>
 
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
+<div class="field">
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+</div>
 
-  <div class="field">
-    <%= f.label :birthday %>
-    <%= f.date_select :birthday %>
-  </div>
+<div class="field">
+  <%= f.label :birthday %>
+  <%= f.date_select :birthday %>
+</div>
 
-  <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
-  </div>
+<div class="field">
+  <%= f.label :phone_number %>
+  <%= f.telephone_field :phone_number %>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
