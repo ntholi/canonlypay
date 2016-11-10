@@ -6,7 +6,6 @@ one:
   price: 1.5
   year_made: 1
   description: MyText
-  pictures: MyText
   advertiser: one
 
 two:
@@ -15,5 +14,4 @@ two:
   price: 1.5
   year_made: 1
   description: MyText
-  pictures: MyText
   advertiser: two

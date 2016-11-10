@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :users
   resources :adverts
   resources :products
-  resources :advertisers
   resources :product_categories
+  resources :advertisers
   resources :posts do
     collection do
       post :pre_create
