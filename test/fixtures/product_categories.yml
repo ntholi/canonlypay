@@ -2,8 +2,8 @@
 
 one:
   category: MyString
-  keywords: MyText
+  keywords: MyString
 
 two:
   category: MyString
-  keywords: MyText
+  keywords: MyString

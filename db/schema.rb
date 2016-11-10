@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107180629) do
+ActiveRecord::Schema.define(version: 20161110093544) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "second_name"
     t.string   "email"
     t.string   "company_name"
-    t.string   "city"
+    t.string   "location"
     t.string   "phone_number"
     t.string   "website"
     t.datetime "created_at",   null: false
@@ -47,32 +47,32 @@ ActiveRecord::Schema.define(version: 20161107180629) do
 
   create_table "product_categories", force: :cascade do |t|
     t.string   "category"
-    t.text     "keywords"
+    t.string   "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer  "category_id"
     t.string   "name"
+    t.integer  "product_category_id"
     t.float    "price"
     t.integer  "year_made"
     t.text     "description"
     t.text     "pictures"
     t.integer  "advertiser_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["advertiser_id"], name: "index_products_on_advertiser_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "display_name"
     t.string   "first_name"
     t.string   "second_name"
-    t.string   "gender"
     t.string   "email"
-    t.string   "city"
+    t.string   "gender"
+    t.string   "location"
     t.date     "birthday"
     t.string   "phone_number"
     t.datetime "created_at",   null: false

@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :users
+  resources :adverts
+  resources :products
+  resources :advertisers
+  resources :product_categories
   resources :posts do
     collection do
       post :pre_create
     end
   end
-  resources :users
-  resources :adverts
-  resources :products
-  resources :advertisers
 
   get 'home/index'
   get 'home/about_us'

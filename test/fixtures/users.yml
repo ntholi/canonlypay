@@ -4,18 +4,18 @@ one:
   display_name: MyString
   first_name: MyString
   second_name: MyString
-  gender: MyString
   email: MyString
-  city: MyString
-  birthday: 2016-11-07
+  gender: MyString
+  location: MyString
+  birthday: 2016-11-10
   phone_number: MyString
 
 two:
   display_name: MyString
   first_name: MyString
   second_name: MyString
-  gender: MyString
   email: MyString
-  city: MyString
-  birthday: 2016-11-07
+  gender: MyString
+  location: MyString
+  birthday: 2016-11-10
   phone_number: MyString

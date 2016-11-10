@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Category</th>
       <th>Name</th>
+      <th>Product category</th>
       <th>Price</th>
       <th>Year made</th>
       <th>Description</th>
@@ -19,8 +19,8 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.category %></td>
         <td><%= product.name %></td>
+        <td><%= product.product_category %></td>
         <td><%= product.price %></td>
         <td><%= product.year_made %></td>
         <td><%= product.description %></td>

@@ -14,21 +14,11 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new;
-    # if(params.has_key?(:min_price)) && params.has_key
-    min_price = params['min_price']
-    @post.min_price = min_price
+    @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
-  end
-
-  def pre_create
-    content = params[:post][:content]
-    price = get_price(content)
-    p "***************************** Price: #{price}"
-    redirect_to controller: 'posts', action: 'new', min_price: price
   end
 
   # POST /posts
@@ -69,10 +59,6 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def get_price(content)
-    price = content[ /\d+(?:\.\d+)?/ ]
   end
 
   private
