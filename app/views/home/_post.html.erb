@@ -1,21 +1,22 @@
 <%= form_for(post, :url => url_for(:controller => 'posts', :action => 'pre_create')) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<% if post.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(post.errors.count, "error") %>
+    prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Ask for competitive quotations" %>
-  </div>
+<div class="field">
+  <%= f.text_area :content, size: "30x10", placeholder: "Ask for competitive quotations" %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Post" %>
-  </div>
+<div class="actions">
+  <%= f.submit "Post" %>
+</div>
 <% end %>

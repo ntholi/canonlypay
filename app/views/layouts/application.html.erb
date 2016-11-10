@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Needthat</title>
+    <title>NeedThat</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,17 +9,22 @@
   </head>
 
   <body>
-  	<header>
-  		<h1>Need<span class="needthat-colorling">that</span></h1>
-  	</header>
+    <header>
+      <h1>
+        <!-- Need<span class="needthat-colorling">that</span> -->
+        <%= link_to home_index_path, :class=> "app-name-link" do %>
+        Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>
+        <% end %>
+      </h1>
+    </header>
 
     <main>
-    <%= yield %>
+      <%= yield %>
     </main>
-    
+
     <footer>
       <br><br>
-    	<small>&copy 2016 Need<span class="needthat-colorling">that</span>.co.za</small>
+      <small>&copy 2016 Need<span class="needthat-colorling">that</span>.co.za</small>
     </footer>
   </body>
 </html>
