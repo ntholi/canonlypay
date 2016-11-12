@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :product_id %>
-    <%= f.text_field :product_id %>
+    <%= f.collection_select :product_id, Product.all, :id, :product_category %>
   </div>
 
   <div class="actions">
