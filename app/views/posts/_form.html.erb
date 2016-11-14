@@ -17,23 +17,19 @@
   </div>
 
   <div class="field">
-    <%= f.label :min_price %>
-    <%= f.text_field :min_price %>
-  </div>
-
-  <div class="field">
-    <%= f.label :max_price %>
-    <%= f.text_field :max_price %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.label :min_price, "Price Range: " %>
+    <%= f.text_field :min_price, placeholder: "Minimum", size: "10" %>
+    <%= f.text_field :max_price, placeholder: "Maximum", size: "10"  %>
   </div>
 
   <div class="field">
     <%= f.label :product_id %>
-    <%= f.collection_select :product_id, Product.all, :id, :product_category %>
+    <%= f.text_field :product_id %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :user_id %>
+    <%= text_field_tag :user_id %>
   </div>
 
   <div class="actions">
