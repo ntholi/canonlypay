@@ -14,13 +14,10 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new;
-    # if(params.has_key?(:min_price)) && params.has_key
-    max_price = params['max_price']
-    content = params['content']
-
-    @post.max_price = max_price
-    @post.content = content
+    @post = Post.new
+    @post.min_price = params['min_price'] if params.has_key? :min_price
+    @post.max_price = params['max_price'] if params.has_key? :max_price
+    @post.content = params['content'] if params.has_key? :content
   end
 
   # GET /posts/1/edit
@@ -32,13 +29,33 @@ class PostsController < ApplicationController
     price = get_price(content)
     category = get_category(content)
 
-    redirect_to controller: 'posts', action: 'new', content: content, max_price: price
+    redirect_to controller: 'posts', action: 'new', content: content, min_price: price
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    product_params = params[:post][:product_attributes];
+    user_params = params[:post][:user_attributes];
+
+    user = User.find_by(phone_number: user_params[:phone_number])
+    if !user
+      user = User.new
+      user.display_name = user_params[:display_name]
+      user.gender = user_params[:gender]
+      user.location = user_params[:location]
+      user.birthday = user_params[:birthday]
+      user.phone_number = user_params[:phone_number]
+      user.save
+    end
+    product = Product.new()
+    product.name = product_params[:name];
+    product.product_category_id = product_params[:product_category_id]
+    product.save
+
+    @post.user = user;
+    @post.product = product;
 
     respond_to do |format|
       if @post.save
