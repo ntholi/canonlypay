@@ -1,29 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Adverts</h1>
+<section>
+  <%= link_to "Ask for competitive quotations", home_index_path %>
+</section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Advertiser</th>
-      <th>Product</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section>
+ <%= link_to 'New Advert', new_advert_path %>
+</section>
 
-  <tbody>
-    <% @adverts.each do |advert| %>
-      <tr>
-        <td><%= advert.advertiser %></td>
-        <td><%= advert.product %></td>
-        <td><%= link_to 'Show', advert %></td>
-        <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
-        <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Advert', new_advert_path %>
+<section>
+<h2>Find potential customers looking for products or services by thier location</h2>
+<% @posts.each do |post| %>
+  <article>
+  <%= post %>
+  <%= link_to 'More Info', post %>
+  </article>
+<% end %>
+</section>

@@ -4,7 +4,7 @@ class AdvertsController < ApplicationController
   # GET /adverts
   # GET /adverts.json
   def index
-    @adverts = Advert.all
+    @posts = Post.all
   end
 
   # GET /adverts/1
