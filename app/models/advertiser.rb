@@ -1,5 +1,7 @@
 class Advertiser < ApplicationRecord
 	has_many :adverts
+	validates :phone_number, presence: true
+	validates_uniqueness_of :phone_number
 
 	def to_s
 		if company_name

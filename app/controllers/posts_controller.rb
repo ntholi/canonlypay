@@ -12,24 +12,34 @@ class PostsController < ApplicationController
   def show
   end
 
+  def pre_create
+    content = params[:post][:content]
+    price = get_price(content)
+    product_name, category = get_product_and_category(content)
+    display_name = get_display_name(content)
+
+    redirect_to controller: 'posts', action: 'new', content: content, min_price: price, product_name: product_name, category: category, display_name: display_name
+  end
+
   # GET /posts/new
   def new
     @post = Post.new
+    product = Product.new
+    user = User.new
     @post.min_price = params['min_price'] if params.has_key? :min_price
     @post.max_price = params['max_price'] if params.has_key? :max_price
     @post.content = params['content'] if params.has_key? :content
+    product.name = params['product_name'] if params.has_key? :product_name
+    category = params['category'] if params.has_key? :category
+    product.product_category = ProductCategory.find_by(category: category)
+    user.display_name = params['display_name'] if params.has_key? :display_name
+
+    @post.product = product
+    @post.user = user
   end
 
   # GET /posts/1/edit
   def edit
-  end
-
-  def pre_create
-    content = params[:post][:content]
-    price = get_price(content)
-    category = get_category(content)
-
-    redirect_to controller: 'posts', action: 'new', content: content, min_price: price
   end
 
   # POST /posts
@@ -96,7 +106,28 @@ class PostsController < ApplicationController
     price = content[ /\d+(?:\.\d+)?/ ]
   end
 
-  def get_category(content)
+  #extract product_name and product_category
+  def get_product_and_category(content)
+    categ = "Other"
+    product = ""
+    content.split(" ").each do |word|
+      category = ProductCategory.where("keywords LIKE ?", "%#{word}%")
+      if category and category.first
+        categ = category.first.category
+        product = word
+      end
+    end
+    return product.capitalize, categ
+  end
+
+  def get_display_name(content)
+    keyword = "my name is"
+    name = ""
+    string = content.downcase
+    if string.include? keyword
+      name = string.partition(keyword).last.split.first.strip.capitalize
+    end
+    name
   end
 
   private
