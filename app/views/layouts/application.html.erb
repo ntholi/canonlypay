@@ -11,7 +11,6 @@
   <body>
     <header>
       <h1>
-        <!-- Need<span class="needthat-colorling">that</span> -->
         <%= link_to home_index_path, :class=> "app-name-link" do %>
         Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>
         <% end %>
@@ -24,7 +23,12 @@
 
     <footer>
       <br><br>
-      <small>&copy 2016 Need<span class="needthat-colorling">that</span>.co.za</small>
+      <small>
+        &copy 2016
+        <%= link_to home_index_path, :class=> "app-name-link" do %>
+        Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>.co.za
+        <% end %>
+      </small>
     </footer>
   </body>
 </html>
