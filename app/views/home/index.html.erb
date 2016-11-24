@@ -1,17 +1,14 @@
 <section>
-	<%= link_to "Run Directive Adverts", adverts_path %>
-</section>
-<section>
-<h2>Post for free and receive competitive quotations</h2>
-<%= render 'post', post: Post.new %>	
+	<h2 class="page-description">Post for free and receive competitive quotations</h2>
+	<%= render 'post', post: Post.new %>
 </section>
 
 <section>
-<% @adverts.each do |advert| %>
-  <article>
-  <%= advert.product %>
-  <%= advert.advertiser %>
-  <%= link_to 'More Info', advert %>
-  </article>
-<% end %>
+	<% @adverts.each do |advert| %>
+	<article>
+		<%= advert.product %>
+		<%= advert.advertiser %>
+		<%= link_to 'More Info', advert %>
+	</article>
+	<% end %>
 </section>

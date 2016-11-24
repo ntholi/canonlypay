@@ -12,11 +12,12 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= f.text_area :content, size: "30x10", placeholder: "Ask for competitive quotations" %>
+<div class="mdl-textfield mdl-js-textfield">
+  <%= f.text_area :content, size: "30x10", class: 'mdl-textfield__input' %>
+  <label class="mdl-textfield__label" for="post_content">Ask for competitive quotations</label>
 </div>
 
 <div class="actions">
-  <%= f.submit "Post" %>
+  <%= f.submit "Post", class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
 </div>
 <% end %>
