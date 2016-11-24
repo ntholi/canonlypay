@@ -5,31 +5,61 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= javascript_include_tag 'application' %>
+
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <header>
-      <h1>
-        <%= link_to home_index_path, :class=> "app-name-link" do %>
-        Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>
-        <% end %>
-      </h1>
-    </header>
-
-    <main>
-      <%= yield %>
-    </main>
-
-    <footer>
-      <br><br>
-      <small>
-        &copy 2016
-        <%= link_to home_index_path, :class=> "app-name-link" do %>
-        Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>.co.za
-        <% end %>
-      </small>
-    </footer>
+    <!-- Simple header with scrollable tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <h1 class="mdl-layout-title">
+            <%= link_to "NeedThat", home_index_path, :class=> "app-name-link"  %>
+          </h1>
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Find Sellars</a>
+          <a href="#scroll-tab-2" class="mdl-layout__tab">Find Buyers</a>
+        </div>
+      </header>
+      <!-- <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Menu</span>
+      </div> -->
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+          <div class="page-content">
+            <!-- Your content goes here -->
+            <%= yield %>
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+          <div class="page-content">
+            <!-- Your content goes here -->
+            <%= render '/adverts/index' %>
+          </div>
+        </section>
+      </main>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            &copy 2016
+            <%= link_to "NeedThat.co.za", home_index_path, :class=> "app-name-link"  %>
+          </div>
+          <ul class="mdl-mini-footer__link-list">
+            <li>
+              <a href="#">Help</a>
+            </li>
+            <li>
+              <a href="#">Privacy & Terms</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

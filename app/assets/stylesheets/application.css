@@ -15,22 +15,9 @@
  *= require material
  */
 
-.needthat-colorling {
-    color: red;
-}
-
 .app-name-link {
     text-decoration: none;
-    color: #000;
-}
-
-.app-name-link:hover {
-    color: #000;
-    background-color: #fff;
-}
-
-.app-name-link:visited {
-    color: #000
+    color: #fff;
 }
 
 header h1 {
