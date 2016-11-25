@@ -265,6 +265,15 @@ html, body {
     z-index: 99;
 }
 
+.portfolio-max-width {
+    max-width: 900px;
+    margin: auto;
+}
+
+.portfolio-card .mdl-card__title {
+    padding-bottom: 0;
+}
+
 
 /*******************************************************************************
   Custom style begins here
