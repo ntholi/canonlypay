@@ -1,69 +1,86 @@
-<%= form_for(setup_post(post)) do |f| %>
-<% if post.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(post.errors.count, "error") %>
-    prohibited this post from being saved:</h2>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="mdl-card mdl-cell mdl-cell--12-col">
+    <div class="mdl-card__supporting-text">
+      <%= form_for(setup_post(post)) do |f| %>
+      <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %>
+          prohibited this post from being saved:</h2>
 
-  <ul>
-    <% post.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="field mdl-textfield mdl-js-textfield">
+        <%= f.label :content, "Description", class: "mdl-textfield__label" %>
+        <%= f.text_area :content,  size: "10x5", class: "mdl-textfield__input" %>
+      </div>
+
+      <%= f.fields_for :product do |fp| %>
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= fp.label :name, "Product Name", class: "mdl-textfield__label" %>
+        <%= fp.text_field :name, class: "mdl-textfield__input" %>
+      </div>
+
+      <div class="field">
+        <%= fp.label :product_category_id %>
+        <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category %>
+      </div>
+
+      <% end %>
+
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :min_price, "Minimum Price", class: "mdl-textfield__label" %>
+        <%= f.text_field :min_price, size: "10", class: "mdl-textfield__input" %>
+      </div>
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.label :max_price, "Maximum Price", class: "mdl-textfield__label" %>
+        <%= f.text_field :max_price, size: "10", class: "mdl-textfield__input"  %>
+      </div>
+
+      <%= f.fields_for :user do |fu| %>
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= fu.label :display_name, "Your Name", class: "mdl-textfield__label"  %>
+        <%= fu.text_field :display_name, class: "mdl-textfield__input" %>
+      </div>
+
+      <div class="field">
+        <%= fu.label :gender %>
+        <%= fu.select :gender,  User::GENDER_TYPES %>
+      </div>
+
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= fu.label :location, class: "mdl-textfield__label" %>
+        <%= fu.text_field :location, class: "mdl-textfield__input" %>
+      </div>
+
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= fu.label :birthday %>
+        <%= fu.date_select :birthday %>
+      </div>
+
+      <div class="field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= fu.label :phone_number, class: "mdl-textfield__label" %>
+        <%= fu.telephone_field :phone_number, class: "mdl-textfield__input", pattern: "-?[0-9]*(\.[0-9]+)?" , required: true%>
+      </div>
+      <% end %>
+
+    </div>
+    <div class="mdl-card__actions">
+      <%= f.submit "Finish", class: 'mdl-button' %>
+    </div>
     <% end %>
+  </div>
+  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
+    <i class="material-icons">more_vert</i>
+  </button>
+  <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
+    <li class="mdl-menu__item">Lorem</li>
+    <li class="mdl-menu__item" disabled>Ipsum</li>
+    <li class="mdl-menu__item">Dolor</li>
   </ul>
-</div>
-<% end %>
-
-<div class="mdl-textfield mdl-js-textfield">
-  <%= f.label :content, "Description", class: "mdl-textfield__label" %>
-  <%= f.text_area :content,  size: "10x5", class: "mdl-textfield__input" %>
-</div>
-
-<%= f.fields_for :product do |fp| %>
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <%= fp.label :name, "Product Name", class: "mdl-textfield__label" %>
-  <%= fp.text_field :name, class: "mdl-textfield__input" %>
-</div>
-
-<div class="field">
-  <%= fp.label :product_category_id %>
-  <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category %>
-</div>
-
-<% end %>
-
-<div class="field">
-  <%= f.label :min_price, "Price Range: " %>
-  <%= f.text_field :min_price, placeholder: "Minimum", size: "10" %>
-  <%= f.text_field :max_price, placeholder: "Maximum", size: "10"  %>
-</div>
-
-<%= f.fields_for :user do |fu| %>
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <%= fu.label :display_name, "Your Name", class: "mdl-textfield__label"  %>
-  <%= fu.text_field :display_name, class: "mdl-textfield__input" %>
-</div>
-
-<div class="field">
-  <%= fu.label :gender %>
-  <%= fu.select :gender,  User::GENDER_TYPES %>
-</div>
-
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <%= fu.label :location, class: "mdl-textfield__label" %>
-  <%= fu.text_field :location, class: "mdl-textfield__input" %>
-</div>
-
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <%= fu.label :birthday %>
-  <%= fu.date_select :birthday %>
-</div>
-
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  <%= fu.label :phone_number, class: "mdl-textfield__label" %>
-  <%= fu.telephone_field :phone_number, class: "mdl-textfield__input", pattern: "-?[0-9]*(\.[0-9]+)?" , required: true%>
-</div>
-<% end %>
-
-<div class="actions">
-  <%= f.submit "Finish" %>
-</div>
-<% end %>
+</section>
