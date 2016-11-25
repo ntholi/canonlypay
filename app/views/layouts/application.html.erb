@@ -11,54 +11,102 @@
 
   </head>
 
-  <body>
-    <!-- Simple header with scrollable tabs. -->
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <h1 class="mdl-layout-title">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h1>
             <%= link_to "NeedThat", home_index_path, :class=> "app-name-link"  %>
           </h1>
         </div>
-        <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Find Sellars</a>
-          <a href="#scroll-tab-2" class="mdl-layout__tab">Find Buyers</a>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
+          <a href="#features" class="mdl-layout__tab">Features</a>
+          <a href="#features" class="mdl-layout__tab">Details</a>
+          <a href="#features" class="mdl-layout__tab">Technology</a>
+          <a href="#features" class="mdl-layout__tab">FAQ</a>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+            <i class="material-icons" role="presentation">add</i>
+            <span class="visuallyhidden">Add</span>
+          </button>
         </div>
       </header>
-      <!-- <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Menu</span>
-      </div> -->
       <main class="mdl-layout__content">
-        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-          <div class="page-content">
-            <!-- Your content goes here -->
-            <%= yield %>
-          </div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-          <div class="page-content">
-            <!-- Your content goes here -->
-          </div>
-        </section>
-      </main>
-      <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">
-            &copy 2016
-            <%= link_to "NeedThat.co.za", home_index_path, :class=> "app-name-link"  %>
-          </div>
-          <ul class="mdl-mini-footer__link-list">
-            <li>
-              <a href="#">Help</a>
-            </li>
-            <li>
-              <a href="#">Privacy & Terms</a>
-            </li>
-          </ul>
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <%= yield %>
         </div>
-      </footer>
+        <div class="mdl-layout__tab-panel" id="features">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4>Features</h4>
+              Minim duis incididunt est cillum est ex occaecat consectetur. Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
+              <ul class="toc">
+                <h4>Contents</h4>
+                <a href="#lorem1">Lorem ipsum</a>
+                <a href="#lorem2">Lorem ipsum</a>
+                <a href="#lorem3">Lorem ipsum</a>
+                <a href="#lorem4">Lorem ipsum</a>
+                <a href="#lorem5">Lorem ipsum</a>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--middle-section">
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Features</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Terms</a>
+                </li>
+                <li>
+                  <a href="#">Partners</a>
+                </li>
+                <li>
+                  <a href="#">Updates</a>
+                </li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">FAQ</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li>
+                  <a href="#">Questions</a>
+                </li>
+                <li>
+                  <a href="#">Answers</a>
+                </li>
+                <li>
+                  <a href="#">Contact us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              More Information
+            </div>
+            <ul class="mdl-mega-footer--link-list">
+              <li>
+                <a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a>
+              </li>
+              <li>
+                <a href="#">Help</a>
+              </li>
+              <li>
+                <a href="#">Privacy and Terms</a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </main>
     </div>
   </body>
 </html>
