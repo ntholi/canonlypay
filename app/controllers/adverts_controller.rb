@@ -15,6 +15,11 @@ class AdvertsController < ApplicationController
   # GET /adverts/new
   def new
     @advert = Advert.new
+    advertiser = Advertiser.new
+    product = Product.new
+
+    @advert.advertiser = advertiser
+    @advert.product = product
   end
 
   # GET /adverts/1/edit
