@@ -23,6 +23,21 @@
   <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category %>
 </div>
 
+<div class="field">
+  <%= fp.label :price %>
+  <%= fp.text_field :price %>
+</div>
+
+<div class="field">
+  <%= fp.label :year_made %>
+  <%= fp.number_field :year_made %>
+</div>
+
+<div class="field">
+  <%= fp.label :description %>
+  <%= fp.text_area :description %>
+</div>
+
 <% end %>
 
 <%= f.fields_for :advertiser do |fa| %>
