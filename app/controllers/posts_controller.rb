@@ -46,26 +46,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    product_params = params[:post][:product_attributes];
-    user_params = params[:post][:user_attributes];
-
-    user = User.find_by(phone_number: user_params[:phone_number])
-    if !user
-      user = User.new
-      user.display_name = user_params[:display_name]
-      user.gender = user_params[:gender]
-      user.location = user_params[:location]
-      user.birthday = user_params[:birthday]
-      user.phone_number = user_params[:phone_number]
-      user.save
-    end
-    product = Product.new()
-    product.name = product_params[:name];
-    product.product_category_id = product_params[:product_category_id]
-    product.save
-
-    @post.user = user;
-    @post.product = product;
+    @post.user = get_saved_user();
+    @post.product = get_saved_product()
 
     respond_to do |format|
       if @post.save
@@ -81,6 +63,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.user = get_saved_user();
+    @post.product = get_saved_product()
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -128,6 +112,31 @@ class PostsController < ApplicationController
       name = string.partition(keyword).last.split.first.strip.capitalize
     end
     name
+  end
+
+  def get_saved_user
+    user_params = params[:post][:user_attributes];
+    user = User.find_by(phone_number: user_params[:phone_number])
+    if !user
+      user = @post.user || User.new
+    end
+    user.display_name = user_params[:display_name]
+    user.gender = user_params[:gender]
+    user.location = user_params[:location]
+    user.birthday = user_params[:birthday]
+    user.phone_number = user_params[:phone_number]
+    user.save
+    return user
+  end
+
+  def get_saved_product
+    product_params = params[:post][:product_attributes];
+    product = @post.product || Product.new()
+    product.name = product_params[:name];
+    product.product_category_id = product_params[:product_category_id]
+    product.price = params[:post][:min_price]
+    product.save
+    return product
   end
 
   private

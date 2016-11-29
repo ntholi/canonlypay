@@ -30,8 +30,8 @@ class AdvertsController < ApplicationController
   # POST /adverts.json
   def create
     @advert = Advert.new(advert_params)
-    @advert.advertiser = get_advertiser()
-    @advert.product = get_product()
+    @advert.advertiser = get_saved_advertiser()
+    @advert.product = get_saved_product()
 
     respond_to do |format|
       if @advert.save
@@ -47,8 +47,8 @@ class AdvertsController < ApplicationController
   # PATCH/PUT /adverts/1
   # PATCH/PUT /adverts/1.json
   def update
-    @advert.advertiser = get_advertiser()
-    @advert.product = get_product()
+    @advert.advertiser = get_saved_advertiser()
+    @advert.product = get_saved_product()
 
     respond_to do |format|
       if @advert.update(advert_params)
@@ -71,7 +71,7 @@ class AdvertsController < ApplicationController
     end
   end
 
-  def get_advertiser
+  def get_saved_advertiser
     advertiser_params = params[:advert][:advertiser_attributes]; 
     advertiser = Advertiser.find_by(email: advertiser_params[:email])
     if !advertiser
@@ -88,7 +88,7 @@ class AdvertsController < ApplicationController
     return advertiser
   end
 
-  def get_product
+  def get_saved_product
     product_params = params[:advert][:product_attributes];
     product = @advert.product || Product.new
     product.name = product_params[:name];

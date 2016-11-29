@@ -4,10 +4,10 @@ class Advertiser < ApplicationRecord
 	validates_uniqueness_of :phone_number
 
 	def to_s
-		if company_name
-			return company_name
+		if !company_name.to_s.empty?
+			company_name
 		else
-			return full_name
+			full_name
 		end
 	end
 
