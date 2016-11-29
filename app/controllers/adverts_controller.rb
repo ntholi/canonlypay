@@ -30,31 +30,8 @@ class AdvertsController < ApplicationController
   # POST /adverts.json
   def create
     @advert = Advert.new(advert_params)
-    product_params = params[:advert][:product_attributes];
-    advertiser_params = params[:advert][:advertiser_attributes]; 
-
-    advertiser = Advertiser.find_by(email: advertiser_params[:email])
-    if !advertiser
-      advertiser = Advertiser.new
-      advertiser.first_name = advertiser_params[:first_name]
-      advertiser.last_name = advertiser_params[:last_name]
-      advertiser.email = advertiser_params[:email]
-      advertiser.company_name = advertiser_params[:company_name]
-      advertiser.location = advertiser_params[:location]
-      advertiser.phone_number = advertiser_params[:phone_number]
-      advertiser.website = advertiser_params[:website]
-      advertiser.save
-    end
-    product = Product.new
-    product.name = product_params[:name];
-    product.product_category_id = product_params[:product_category_id]
-    product.price = product_params[:price]; 
-    product.year_made = product_params[:year_made];
-    product.description = product_params[:description];
-    product.save
-
-    @advert.advertiser = advertiser
-    @advert.product = product
+    @advert.advertiser = get_advertiser()
+    @advert.product = get_product()
 
     respond_to do |format|
       if @advert.save
@@ -70,6 +47,9 @@ class AdvertsController < ApplicationController
   # PATCH/PUT /adverts/1
   # PATCH/PUT /adverts/1.json
   def update
+    @advert.advertiser = get_advertiser()
+    @advert.product = get_product()
+
     respond_to do |format|
       if @advert.update(advert_params)
         format.html { redirect_to @advert, notice: 'Advert was successfully updated.' }
@@ -89,6 +69,35 @@ class AdvertsController < ApplicationController
       format.html { redirect_to adverts_url, notice: 'Advert was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def get_advertiser
+    advertiser_params = params[:advert][:advertiser_attributes]; 
+    advertiser = Advertiser.find_by(email: advertiser_params[:email])
+    if !advertiser
+      advertiser = @advert.advertiser || Advertiser.new
+    end
+    advertiser.first_name = advertiser_params[:first_name]
+    advertiser.last_name = advertiser_params[:last_name]
+    advertiser.email = advertiser_params[:email]
+    advertiser.company_name = advertiser_params[:company_name]
+    advertiser.location = advertiser_params[:location]
+    advertiser.phone_number = advertiser_params[:phone_number]
+    advertiser.website = advertiser_params[:website]
+    advertiser.save
+    return advertiser
+  end
+
+  def get_product
+    product_params = params[:advert][:product_attributes];
+    product = @advert.product || Product.new
+    product.name = product_params[:name];
+    product.product_category_id = product_params[:product_category_id]
+    product.price = product_params[:price]; 
+    product.year_made = product_params[:year_made];
+    product.description = product_params[:description];
+    product.save
+    return product
   end
 
   private
