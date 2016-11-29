@@ -44,7 +44,7 @@
 
 <div class="field">
   <%= f.label :birthday %>
-  <%= f.date_select :birthday %>
+  <%= f.date_select :birthday, {order: [:day, :month, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 12, end_year: Date.today.year - 100} %>
 </div>
 
 <div class="field">
