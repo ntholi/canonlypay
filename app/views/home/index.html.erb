@@ -1,18 +1,17 @@
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-	<div class="mdl-card mdl-cell mdl-cell--12-col">
-		<div class="mdl-card__supporting-text">
-			<h4>Post for free and receive competitive quotations</h4>
-			<%= render 'post', post: Post.new %>
-		</div>
-	</div>
+<section>
+	<%= link_to "Run Directive Adverts", adverts_path %>
+</section>
+<section>
+<h2>Post for free and receive competitive quotations</h2>
+<%= render 'post', post: Post.new %>	
 </section>
 
 <section>
-	<% @adverts.each do |advert| %>
-	<article>
-		<%= advert.product %>
-		<%= advert.advertiser %>
-		<%= link_to 'More Info', advert %>
-	</article>
-	<% end %>
+<% @adverts.each do |advert| %>
+  <article>
+  <%= advert.product %>
+  <%= advert.advertiser %>
+  <%= link_to 'More Info', advert %>
+  </article>
+<% end %>
 </section>
