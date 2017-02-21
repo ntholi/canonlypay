@@ -27,21 +27,20 @@ $pramary_color: #2196F3;
     margin: 0;
     li{
       display: inline-block;
-      padding: 15px;
-      &:hover{
-        border-bottom: 3px solid $pramary_color;
-        padding: 12px 15px;
-        cursor: pointer;
-      }
     }
     a{
       color: $gray_600;
+      padding: 15px;
+      display: inline-block;
       &:hover{
         text-decoration: none;
+        border-bottom: 3px solid $pramary_color;
+        padding: 12px 15px;
       }
     }
   }
 }
+
 .needthat-colorling {
     color: red;
 }
