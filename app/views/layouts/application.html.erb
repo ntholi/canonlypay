@@ -8,20 +8,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <h1>
-        <%= link_to home_index_path, :class=> "app-name-link" do %>
-        Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>
-        <% end %>
-      </h1>
-    </header>
+  <body class="container">
+    <nav class="row">
+      <ul>
+        <li ><%= link_to 'NeedThat' home_index_path %></li>
+        <li ><%= link_to 'Buy' home_index_path %></li>
+        <li ><%= link_to 'Sell' home_index_path %></li>
+        <li ><%= link_to 'Profile' home_index_path %></li>
+      </ul>
+    </nav>
 
-    <main>
+    <main class="row">
       <%= yield %>
     </main>
 
-    <footer>
+    <footer class="row">
       <br><br>
       <small>
         &copy 2017
