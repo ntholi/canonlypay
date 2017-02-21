@@ -1,10 +1,14 @@
 <section>
-	<%= link_to "Run Directive Adverts", adverts_path %>
+	<h2>Post for free and receive competitive quotations</h2>
+	<%= render 'post', post: Post.new %>
 </section>
-<h1>
-	<%= link_to home_index_path, :class=> "app-name-link" do %>
-	Need<%= content_tag(:span, "That", :class => "needthat-colorling") %>
-	<% end %>
-</h1>
 
-<section></section>
+<section>
+	<% @adverts.each do |advert| %>
+	<article>
+		<%= advert.product %>
+		<%= advert.advertiser %>
+		<%= link_to 'More Info', advert %>
+	</article>
+	<% end %>
+</section>

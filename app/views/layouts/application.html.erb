@@ -9,12 +9,12 @@
   </head>
 
   <body class="container">
-    <nav class="row">
+    <nav id="mainNav" class="row">
       <ul>
-        <li ><%= link_to 'NeedThat' home_index_path %></li>
-        <li ><%= link_to 'Buy' home_index_path %></li>
-        <li ><%= link_to 'Sell' home_index_path %></li>
-        <li ><%= link_to 'Profile' home_index_path %></li>
+        <li ><%= link_to 'NeedThat', home_index_path %></li>
+        <li ><%= link_to 'Sell', adverts_path  %></li>
+        <li ><%= link_to 'Buy',  posts_path %></li>
+        <li ><%= link_to 'Profile', home_index_path %></li>
       </ul>
     </nav>
 
