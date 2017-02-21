@@ -14,6 +14,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "home";
 // @import "scaffolds";
 
 $gray_600: #757575;
@@ -41,24 +42,13 @@ $pramary_color: #2196F3;
   }
 }
 
-.needthat-colorling {
-    color: red;
+main{
+  margin-top: 30px;
 }
 
-.app-name-link {
-    text-decoration: none;
-    color: #000;
-}
-
-.app-name-link:hover {
-    color: #000;
-    background-color: #fff;
-}
-
-.app-name-link:visited {
-    color: #000
-}
-
-header h1 {
-    font-variant: small-caps;
+.new-post{
+  .action{
+    float: right;
+    padding-top: 10px;
+  }
 }

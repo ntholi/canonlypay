@@ -1,14 +1,18 @@
-<section>
-	<h2>Post for free and receive competitive quotations</h2>
-	<%= render 'post', post: Post.new %>
-</section>
+<section class="col-md-3">x</section>
 
-<section>
-	<% @adverts.each do |advert| %>
-	<article>
-		<%= advert.product %>
-		<%= advert.advertiser %>
-		<%= link_to 'More Info', advert %>
-	</article>
-	<% end %>
-</section>
+<div class="col-md-6">
+	<section class="new-post">
+		<%= render 'post', post: Post.new %>
+	</section>
+	<section>
+		<% @adverts.each do |advert| %>
+		<article>
+			<%= advert.product %>
+			<%= advert.advertiser %>
+			<%= link_to 'More Info', advert %>
+		</article>
+		<% end %>
+	</section>
+</div>
+
+<aside class="col-md-3">x</aside>
