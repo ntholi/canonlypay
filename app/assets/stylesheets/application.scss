@@ -18,6 +18,7 @@
 // @import "scaffolds";
 
 $gray_600: #757575;
+$gray_700: #616161;
 $pramary_color: #2196F3;
 
 #mainNav{
@@ -28,27 +29,36 @@ $pramary_color: #2196F3;
     margin: 0;
     li{
       display: inline-block;
+      &:hover{
+        border-bottom: 3px solid $pramary_color;
+        margin-bottom: -3px;
+      }
     }
     a{
       color: $gray_600;
-      padding: 15px;
+      padding: 15px 15px 15px 5px;
       display: inline-block;
       &:hover{
         text-decoration: none;
-        border-bottom: 3px solid $pramary_color;
-        padding: 12px 15px;
       }
     }
   }
+  .nav-icon{
+    padding-left: 10px;
+    font-size: 18px;
+    color: $gray_700;
+  }
 }
+
+
 
 main{
   margin-top: 30px;
-}
 
-.new-post{
-  .action{
-    float: right;
-    padding-top: 10px;
+  .new-post{
+    .action{
+      float: right;
+      padding-top: 10px;
+    }
   }
 }
