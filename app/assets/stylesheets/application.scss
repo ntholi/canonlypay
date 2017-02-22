@@ -17,14 +17,22 @@
 @import "home";
 // @import "scaffolds";
 
+$gray_100: #BDBDBD;
+$gray_200: #EEEEEE;
 $gray_600: #757575;
 $gray_700: #616161;
 $pramary_color: #2196F3;
+$vertical_spacing: 16px;
+
+body{
+  background-color: $gray_100;
+}
 
 #mainNav{
   -webkit-box-shadow: 0px 10px 30px -10px rgba(153,153,161,1);
   -moz-box-shadow: 0px 10px 30px -10px rgba(153,153,161,1);
   box-shadow: 0px 10px 30px -10px rgba(153,153,161,1);
+  background-color: white;
   ul{
     margin: 0;
     li{
@@ -53,12 +61,30 @@ $pramary_color: #2196F3;
 
 
 main{
-  margin-top: 30px;
+  margin-top: $vertical_spacing;
+}
 
-  .new-post{
-    .action{
+.new-post{
+  padding: $vertical_spacing;
+  margin-bottom: $vertical_spacing;
+  background-color: #E8F4FB;
+  .action{
+    padding-top: 5px;
+    overflow: hidden;
+    input{
       float: right;
-      padding-top: 10px;
     }
   }
+}
+
+.post{
+  padding: $vertical_spacing;
+}
+
+aside, footer, article{
+  background-color: white;
+  margin-bottom: $vertical_spacing;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }

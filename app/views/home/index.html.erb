@@ -1,4 +1,4 @@
-<section class="col-md-3">x</section>
+<aside class="col-md-3"></aside>
 
 <div class="col-md-6">
 	<section class="new-post">
@@ -6,7 +6,7 @@
 	</section>
 	<section>
 		<% @adverts.each do |advert| %>
-		<article>
+		<article class="post">
 			<%= advert.product %>
 			<%= advert.advertiser %>
 			<%= link_to 'More Info', advert %>
@@ -15,4 +15,4 @@
 	</section>
 </div>
 
-<aside class="col-md-3">x</aside>
+<aside class="col-md-3"></aside>
