@@ -12,15 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'home/index'
-  get 'home/about_us'
-  get 'home/contact_us'
-  get 'home/connect_with_us'
-  get 'home/privacy_policy'
-  get 'home/terms_of_use'
-  get 'home/cost_of_running_advert'
-  get 'home/how_to_run_advert'
-
   root 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
