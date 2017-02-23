@@ -45,6 +45,10 @@ body{
         margin-bottom: -3px;
       }
     }
+    li:last-child{
+      float: right;
+      margin-right: 35px;
+    }
     a{
       color: $gray_600;
       padding: 15px 15px 15px 5px;
