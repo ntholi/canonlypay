@@ -6,10 +6,17 @@
 	</section>
 	<section>
 		<% @adverts.each do |advert| %>
-		<article class="post">
-			<%= advert.product %>
-			<%= advert.advertiser %>
-			<%= link_to 'More Info', advert %>
+		<article class="row post">
+			<div class="col-xs-2">
+				<a href="#" class="thumbnail">
+					<img src="https://placehold.it/60">
+				</a>
+			</div>
+			<div class="col-xs-10">
+				<%= advert.product %>
+				<%= advert.advertiser %>
+				<%= link_to 'More Info', advert %>
+			</div>
 		</article>
 		<% end %>
 	</section>
