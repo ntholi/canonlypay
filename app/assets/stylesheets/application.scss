@@ -19,9 +19,12 @@
 
 $gray_100: #BDBDBD;
 $gray_200: #EEEEEE;
+$gray_500: #9E9E9E;
 $gray_600: #757575;
 $gray_700: #616161;
-$pramary_color: #2196F3;
+
+$blue_500: #2196F3;
+$blue_50: #E3F2FD;
 $vertical_spacing: 16px;
 
 body{
@@ -38,7 +41,7 @@ body{
     li{
       display: inline-block;
       &:hover{
-        border-bottom: 3px solid $pramary_color;
+        border-bottom: 3px solid $blue_500;
         margin-bottom: -3px;
       }
     }
@@ -67,7 +70,7 @@ main{
 .new-post{
   padding: $vertical_spacing;
   margin-bottom: $vertical_spacing;
-  background-color: #E8F4FB;
+  background-color: $blue_50;
   .action{
     padding-top: 5px;
     overflow: hidden;
@@ -81,6 +84,19 @@ main{
   padding: $vertical_spacing;
   margin-left: -3px;
   margin-right: -3px;
+
+  header{
+    margin-bottom: $vertical_spacing / 2;
+    .post-title{
+      font-weight: bold;
+    }
+    .post-subtitle, .post-time{
+      color: $gray_500;
+    }
+    .post-time{
+      font-size: .8em;
+    }
+  }
 }
 
 aside, footer, article{
