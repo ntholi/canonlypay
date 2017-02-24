@@ -65,8 +65,6 @@ body{
   }
 }
 
-
-
 main{
   margin-top: $vertical_spacing;
   padding: 0 50px;
@@ -110,4 +108,8 @@ main{
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+}
+
+.control-label{
+  font-weight: normal;
 }

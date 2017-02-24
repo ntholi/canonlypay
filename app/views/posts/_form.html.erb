@@ -13,75 +13,77 @@
 <% end %>
 
 <div class="form-group">
-  <%= f.label :content, "Description", class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
+  <%= f.label :content, "Description", class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
     <%= f.text_area :content, class: 'form-control' %>
   </div>
 </div>
 
 <%= f.fields_for :product do |fp| %>
 <div class="form-group">
-  <%= fp.label :name, "Product Name", class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
+  <%= fp.label :name, "Product Name", class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
     <%= fp.text_field :name, class: 'form-control' %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= fp.label :product_category_id, class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
-    <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category %>
+  <%= fp.label :product_category_id, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category, {class: 'form-control'} %>
   </div>
 </div>
 <% end %>
 
 <div class="form-group">
-  <%= f.label :min_price, "Price Range: ", class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
-    <%= f.text_field :min_price, placeholder: "Minimum", size: "10" %>
-    <%= f.text_field :max_price, placeholder: "Maximum", size: "10"  %>
+  <%= f.label :min_price, "Price: ", class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <div class="input-group">
+      <div class="input-group-addon">R</div>
+      <%= f.text_field :min_price, class: 'form-control', placeholder: "Amount" %>
+    </div>
   </div>
 </div>
 
 <%= f.fields_for :user do |fu| %>
 <div class="form-group">
-  <%= fu.label :display_name, "Your Name", class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
+  <%= fu.label :display_name, "Your Name", class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
     <%= fu.text_field :display_name, class: 'form-control' %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= fu.label :gender, class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
-    <%= fu.select :gender,  User::GENDER_TYPES %>
+  <%= fu.label :gender, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fu.select :gender,  User::GENDER_TYPES, {class: "form-control"} %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= fu.label :location, class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
+  <%= fu.label :location, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
     <%= fu.text_field :location, class: 'form-control' %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= fu.label :birthday, class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
+  <%= fu.label :birthday, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
     <%= fu.date_select :birthday, class: 'form-control' %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= fu.label :phone_number, class: 'col-sm-2 control-label' %>
-  <div class="col-sm-10">
+  <%= fu.label :phone_number, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
     <%= fu.telephone_field :phone_number, class: 'form-control' %>
   </div>
 </div>
 <% end %>
 
 <div class="form-group">
-  <%= f.check_box :payable, class: 'col-sm-offset-2 col-sm-10' %>
+  <%= f.check_box :payable, class: 'col-sm-offset-2 col-sm-9' %>
   <%= f.label :payable, "*Pay to Post" %>
 </div>
 
@@ -101,5 +103,8 @@
 ur post will be on top of our page</li>
 <li>Your post will appear in a more catchy way hance attract more bidders</li>
 <li>The fact that you spend to have your post on the system will give sellers, especially businesses that you really want the product or service hance they will conduct you. Meaning paid posts increases the chances of receiving bids from reliable sellers</li>
+</ul>
+</p>
+you. Meaning paid posts increases the chances of receiving bids from reliable sellers</li>
 </ul>
 </p>
