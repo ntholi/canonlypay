@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129073332) do
+ActiveRecord::Schema.define(version: 20170306090035) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "first_name"
@@ -84,8 +84,9 @@ ActiveRecord::Schema.define(version: 20161129073332) do
     t.string   "location"
     t.date     "birthday"
     t.string   "phone_number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end
