@@ -69,8 +69,22 @@
 </div>
 
 <div class="form-group">
+  <%= f.label :password, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= f.telephone_field :password, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :password_confirmation, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= f.telephone_field :password_confirmation, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-group">
   <div class="col-sm-offset-3 col-sm-9">
-    <%= f.submit "Submit", class: 'btn btn-default'  %>
+    <%= f.submit "Sign Up", class: 'btn btn-default'  %>
   </div>
 </div>
 <% end %>
