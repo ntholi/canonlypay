@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
     def ensure_login
       redirect_to login_path unless session[:user]
     end
+
+    def logged_in?
+      session[:user]
+    end
+
+    def current_user
+      @current_user ||= User.find(session[:user])
+    end
 end
