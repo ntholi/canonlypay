@@ -15,10 +15,10 @@ class AdvertsController < ApplicationController
   # GET /adverts/new
   def new
     @advert = Advert.new
-    advertiser = Advertiser.new
+    company = Company.new
     product = Product.new
 
-    @advert.advertiser = advertiser
+    @advert.company = company
     @advert.product = product
   end
 
@@ -30,7 +30,7 @@ class AdvertsController < ApplicationController
   # POST /adverts.json
   def create
     @advert = Advert.new(advert_params)
-    @advert.advertiser = get_saved_advertiser()
+    @advert.company = get_saved_company()
     @advert.product = get_saved_product()
 
     respond_to do |format|
@@ -47,7 +47,7 @@ class AdvertsController < ApplicationController
   # PATCH/PUT /adverts/1
   # PATCH/PUT /adverts/1.json
   def update
-    @advert.advertiser = get_saved_advertiser()
+    @advert.company = get_saved_company()
     @advert.product = get_saved_product()
 
     respond_to do |format|
@@ -71,21 +71,21 @@ class AdvertsController < ApplicationController
     end
   end
 
-  def get_saved_advertiser
-    advertiser_params = params[:advert][:advertiser_attributes]; 
-    advertiser = Advertiser.find_by(email: advertiser_params[:email])
-    if !advertiser
-      advertiser = @advert.advertiser || Advertiser.new
+  def get_saved_company
+    company_params = params[:advert][:company_attributes]; 
+    company = Company.find_by(email: company_params[:email])
+    if !company
+      company = @advert.company || Company.new
     end
-    advertiser.first_name = advertiser_params[:first_name]
-    advertiser.last_name = advertiser_params[:last_name]
-    advertiser.email = advertiser_params[:email]
-    advertiser.company_name = advertiser_params[:company_name]
-    advertiser.location = advertiser_params[:location]
-    advertiser.phone_number = advertiser_params[:phone_number]
-    advertiser.website = advertiser_params[:website]
-    advertiser.save
-    return advertiser
+    company.first_name = company_params[:first_name]
+    company.last_name = company_params[:last_name]
+    company.email = company_params[:email]
+    company.company_name = company_params[:company_name]
+    company.location = company_params[:location]
+    company.phone_number = company_params[:phone_number]
+    company.website = company_params[:website]
+    company.save
+    return company
   end
 
   def get_saved_product
@@ -108,6 +108,6 @@ class AdvertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advert_params
-      params.require(:advert).permit(:advertiser_id, :product_id)
+      params.require(:advert).permit(:company_id, :product_id)
     end
 end

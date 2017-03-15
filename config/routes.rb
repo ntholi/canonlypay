@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :adverts
   resources :products
   resources :product_categories
-  resources :advertisers
+  resources :companies
   resources :posts do
     collection do
       post :pre_create

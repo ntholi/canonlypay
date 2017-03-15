@@ -12,7 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170306090035) do
 
-  create_table "advertisers", force: :cascade do |t|
+  create_table "adverts", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_adverts_on_company_id"
+    t.index ["product_id"], name: "index_adverts_on_product_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -22,15 +31,6 @@ ActiveRecord::Schema.define(version: 20170306090035) do
     t.string   "website"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "adverts", force: :cascade do |t|
-    t.integer  "advertiser_id"
-    t.integer  "product_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["advertiser_id"], name: "index_adverts_on_advertiser_id"
-    t.index ["product_id"], name: "index_adverts_on_product_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 20170306090035) do
     t.float    "price",               default: 0.0
     t.integer  "year_made"
     t.text     "description"
-    t.integer  "advertiser_id"
+    t.integer  "company_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.index ["advertiser_id"], name: "index_products_on_advertiser_id"
+    t.index ["company_id"], name: "index_products_on_company_id"
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 

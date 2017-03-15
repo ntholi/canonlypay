@@ -1,11 +1,11 @@
-<%= form_for(advertiser) do |f| %>
-<% if advertiser.errors.any? %>
+<%= form_for(company) do |f| %>
+<% if company.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(advertiser.errors.count, "error") %>
-    prohibited this advertiser from being saved:</h2>
+  <h2><%= pluralize(company.errors.count, "error") %>
+    prohibited this company from being saved:</h2>
 
   <ul>
-    <% advertiser.errors.full_messages.each do |message| %>
+    <% company.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>

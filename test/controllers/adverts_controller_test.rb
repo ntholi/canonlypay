@@ -17,7 +17,7 @@ class AdvertsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create advert" do
     assert_difference('Advert.count') do
-      post adverts_url, params: { advert: { advertiser_id: @advert.advertiser_id, product_id: @advert.product_id } }
+      post adverts_url, params: { advert: { company_id: @advert.company_id, product_id: @advert.product_id } }
     end
 
     assert_redirected_to advert_url(Advert.last)
@@ -34,7 +34,7 @@ class AdvertsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update advert" do
-    patch advert_url(@advert), params: { advert: { advertiser_id: @advert.advertiser_id, product_id: @advert.product_id } }
+    patch advert_url(@advert), params: { advert: { company_id: @advert.company_id, product_id: @advert.product_id } }
     assert_redirected_to advert_url(@advert)
   end
 
