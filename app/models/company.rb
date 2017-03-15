@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
 	has_many :adverts
+	belongs_to :user
 	validates :phone_number, presence: true
 	validates_uniqueness_of :phone_number
 

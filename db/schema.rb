@@ -22,15 +22,14 @@ ActiveRecord::Schema.define(version: 20170306090035) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
     t.string   "company_name"
     t.string   "location"
     t.string   "phone_number"
     t.string   "website"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
