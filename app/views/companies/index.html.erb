@@ -5,9 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
       <th>Company name</th>
       <th>Location</th>
       <th>Phone number</th>
@@ -18,18 +15,15 @@
 
   <tbody>
     <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.first_name %></td>
-        <td><%= company.last_name %></td>
-        <td><%= company.email %></td>
-        <td><%= company.company_name %></td>
-        <td><%= company.location %></td>
-        <td><%= company.phone_number %></td>
-        <td><%= company.website %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= company.company_name %></td>
+      <td><%= company.location %></td>
+      <td><%= company.phone_number %></td>
+      <td><%= company.website %></td>
+      <td><%= link_to 'Show', company %></td>
+      <td><%= link_to 'Edit', edit_company_path(company) %></td>
+      <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
