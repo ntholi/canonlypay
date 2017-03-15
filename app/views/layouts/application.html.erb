@@ -19,7 +19,7 @@
           <li >
             <span class="glyphicon glyphicon-shop nav-icon"></span><%= link_to 'Sell', adverts_path  %></li>
           <li >
-            <span class="glyphicon glyphicon-user nav-icon"></span><%= link_to 'Profile', logout_path, method: :delete %></li>
+            <span class="glyphicon glyphicon-user nav-icon"></span><%= link_to "#{current_user.first_name}", logout_path, method: :delete %></li>
         </ul>
       </nav>
     </div>

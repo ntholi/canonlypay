@@ -25,17 +25,14 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     product = Product.new
-    user = User.new
     @post.min_price = params['min_price'] if params.has_key? :min_price
     @post.max_price = params['max_price'] if params.has_key? :max_price
     @post.content = params['content'] if params.has_key? :content
     product.name = params['product_name'] if params.has_key? :product_name
     category = params['category'] if params.has_key? :category
     product.product_category = ProductCategory.find_by(category: category)
-    user.display_name = params['display_name'] if params.has_key? :display_name
 
     @post.product = product
-    @post.user = user
   end
 
   # GET /posts/1/edit
@@ -46,8 +43,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.user = get_saved_user();
     @post.product = get_saved_product()
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -63,7 +60,6 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.user = get_saved_user();
     @post.product = get_saved_product()
     respond_to do |format|
       if @post.update(post_params)
@@ -112,21 +108,6 @@ class PostsController < ApplicationController
       name = string.partition(keyword).last.split.first.strip.capitalize
     end
     name
-  end
-
-  def get_saved_user
-    user_params = params[:post][:user_attributes];
-    user = User.find_by(phone_number: user_params[:phone_number])
-    if !user
-      user = @post.user || User.new
-    end
-    user.display_name = user_params[:display_name]
-    user.gender = user_params[:gender]
-    user.location = user_params[:location]
-    user.birthday = user_params[:birthday]
-    user.phone_number = user_params[:phone_number]
-    user.save
-    return user
   end
 
   def get_saved_product
