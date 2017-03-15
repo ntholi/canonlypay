@@ -5,6 +5,9 @@ class AdvertsController < ApplicationController
   # GET /adverts.json
   def index
     @posts = Post.all
+    if !current_user.companies
+      redirect_to new_company_path, notice: 'You have to become an advertiser first'
+    end
   end
 
   # GET /adverts/1
@@ -15,10 +18,8 @@ class AdvertsController < ApplicationController
   # GET /adverts/new
   def new
     @advert = Advert.new
-    company = Company.new
     product = Product.new
 
-    @advert.company = company
     @advert.product = product
   end
 
@@ -30,7 +31,6 @@ class AdvertsController < ApplicationController
   # POST /adverts.json
   def create
     @advert = Advert.new(advert_params)
-    @advert.company = get_saved_company()
     @advert.product = get_saved_product()
 
     respond_to do |format|
@@ -47,7 +47,6 @@ class AdvertsController < ApplicationController
   # PATCH/PUT /adverts/1
   # PATCH/PUT /adverts/1.json
   def update
-    @advert.company = get_saved_company()
     @advert.product = get_saved_product()
 
     respond_to do |format|
@@ -71,29 +70,12 @@ class AdvertsController < ApplicationController
     end
   end
 
-  def get_saved_company
-    company_params = params[:advert][:company_attributes]; 
-    company = Company.find_by(email: company_params[:email])
-    if !company
-      company = @advert.company || Company.new
-    end
-    company.first_name = company_params[:first_name]
-    company.last_name = company_params[:last_name]
-    company.email = company_params[:email]
-    company.company_name = company_params[:company_name]
-    company.location = company_params[:location]
-    company.phone_number = company_params[:phone_number]
-    company.website = company_params[:website]
-    company.save
-    return company
-  end
-
   def get_saved_product
     product_params = params[:advert][:product_attributes];
     product = @advert.product || Product.new
     product.name = product_params[:name];
     product.product_category_id = product_params[:product_category_id]
-    product.price = product_params[:price]; 
+    product.price = product_params[:price];
     product.year_made = product_params[:year_made];
     product.description = product_params[:description];
     product.save
