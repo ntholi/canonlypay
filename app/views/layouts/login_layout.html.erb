@@ -20,9 +20,9 @@
       </nav>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="loginBody">
       <main class="row">
-        <section class="col-md-9">
+        <section class="col-md-8">
           <% @adverts.each do |advert| %>
           <article class="post row">
             <div class="col-xs-2">
@@ -46,7 +46,7 @@
           </article>
           <% end %>
         </section>
-        <section class="col-md-3">
+        <section class="col-md-4">
           <%= yield %>
         </section>
       </main>

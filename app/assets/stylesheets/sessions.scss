@@ -2,16 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.login-area{
+#loginBody{
+  width: 75%;
+  margin: 0 auto;
+}
 
-  // font-size: 0.9em;
+.login-area{
 
   #login-button{
     width: 80px;
   }
 
   #forgot-password{
-    margin-left: 15px;
+    margin-left: 5px;
   }
 
 
