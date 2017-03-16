@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   protected
     def ensure_login
-      redirect_to login_path unless session[:user]
+      redirect_to login_path, alert: 'Please login first' unless session[:user]
     end
 
     def logged_in?
