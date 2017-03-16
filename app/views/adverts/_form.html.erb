@@ -1,4 +1,4 @@
-<%= form_for(advert) do |f| %>
+<%= form_for(advert, :html => {:class => "form-horizontal"}) do |f| %>
 <% if advert.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(advert.errors.count, "error") %>
@@ -12,73 +12,55 @@
 </div>
 <% end %>
 
+<div class="form-group">
+  <%= f.label :company_name, "Advertiser", class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= f.collection_select :company_id, current_user.companies, :id, :company_name, {}, {class: 'form-control'} %>
+  </div>
+</div>
+
 <%= f.fields_for :product do |fp| %>
-<div class="field">
-  <%= fp.label :name, "Product Name" %>
-  <%= fp.text_field :name %>
+
+<div class="form-group">
+  <%= fp.label :name, "Product Name", class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fp.text_field :name, class: 'form-control' %>
+  </div>
 </div>
 
-<div class="field">
-  <%= fp.label :product_category_id %>
-  <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category %>
+<div class="form-group">
+  <%= fp.label :product_category_id, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fp.collection_select :product_category_id, ProductCategory.all, :id, :category, {}, {class: 'form-control'} %>
+  </div>
 </div>
 
-<div class="field">
-  <%= fp.label :price %>
-  <%= fp.text_field :price %>
+<div class="form-group">
+  <%= fp.label :price, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fp.text_field :price, class: 'form-control' %>
+  </div>
 </div>
 
-<div class="field">
-  <%= fp.label :year_made %>
-  <%= fp.number_field :year_made %>
+<div class="form-group">
+  <%= fp.label :year_made, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fp.number_field :year_made, class: 'form-control' %>
+  </div>
 </div>
 
-<div class="field">
-  <%= fp.label :description %>
-  <%= fp.text_area :description %>
+<div class="form-group">
+  <%= fp.label :description, class: 'col-sm-3 control-label' %>
+  <div class="col-sm-9">
+    <%= fp.text_area :description, class: 'form-control' %>
+  </div>
 </div>
 
 <% end %>
 
-<%= f.fields_for :company do |fa| %>
-
-<div class="field">
-  <%= fa.label :email %>
-  <%= fa.email_field :email %>
-</div>
-
-<div class="field">
-  <%= fa.label :first_name %>
-  <%= fa.text_field :first_name %>
-</div>
-
-<div class="field">
-  <%= fa.label :last_name %>
-  <%= fa.text_field :last_name %>
-</div>
-
-<div class="field">
-  <%= fa.label :company_name %>
-  <%= fa.text_field :company_name %>
-</div>
-
-<div class="field">
-  <%= fa.label :location %>
-  <%= fa.text_field :location %>
-</div>
-
-<div class="field">
-  <%= fa.label :phone_number %>
-  <%= fa.telephone_field :phone_number %>
-</div>
-
-<div class="field">
-  <%= fa.label :website %>
-  <%= fa.text_field :website %>
-</div>
-<% end %>
-
-<div class="actions">
-  <%= f.submit %>
+<div class="form-group">
+  <div class="col-sm-offset-3 col-sm-9">
+    <%= f.submit "Post Advert", class: 'btn btn-default' %>
+  </div>
 </div>
 <% end %>
