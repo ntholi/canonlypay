@@ -74,12 +74,13 @@ main{
   padding: $vertical_spacing;
   margin-bottom: $vertical_spacing;
   background-color: $blue_50;
-  .action{
-    padding-top: 5px;
-    overflow: hidden;
-    input{
-      float: right;
-    }
+}
+
+.action{
+  padding-top: 5px;
+  overflow: hidden;
+  input{
+    float: right;
   }
 }
 
