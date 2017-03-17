@@ -22,6 +22,8 @@
 
 $gray_100: #BDBDBD;
 $gray_200: #EEEEEE;
+$gray_300: #E0E0E0;
+$gray_400: #BDBDBD;
 $gray_500: #9E9E9E;
 $gray_600: #757575;
 $gray_700: #616161;
@@ -88,6 +90,7 @@ main{
 
 .post{
   padding: $vertical_spacing;
+  padding-bottom: 0;
   margin-left: -3px;
   margin-right: -3px;
 
@@ -101,6 +104,19 @@ main{
     }
     .post-time{
       font-size: .8em;
+    }
+  }
+
+  footer{
+    border-top: 1px solid lighten( $gray_400, 10% );
+    margin-top: $vertical_spacing;
+    padding-top: 10px;
+    a{
+      color: $gray_500;
+      &:hover{
+        text-decoration: none;
+        color: $gray_600;
+      }
     }
   }
 }
