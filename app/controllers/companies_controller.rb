@@ -15,6 +15,8 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @company.location = current_user.location
+    @company.phone_number = current_user.phone_number
   end
 
   # GET /companies/1/edit
