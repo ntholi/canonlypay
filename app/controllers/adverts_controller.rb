@@ -5,7 +5,7 @@ class AdvertsController < ApplicationController
   # GET /adverts.json
   def index
     @posts = Post.all
-    if !current_user.companies
+    if current_user.companies.empty?
       redirect_to new_company_path, notice: 'You have to become an advertiser first'
     end
   end
