@@ -67,10 +67,8 @@ ActiveRecord::Schema.define(version: 20170306090035) do
     t.float    "price",               default: 0.0
     t.integer  "year_made"
     t.text     "description"
-    t.integer  "company_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.index ["company_id"], name: "index_products_on_company_id"
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
