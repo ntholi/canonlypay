@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.float :price, default: 0
       t.integer :year_made
       t.text :description
-      t.references :company, foreign_key: true
+      # t.references :company, foreign_key: true
 
       t.timestamps
     end
