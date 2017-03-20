@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :sessions, only: ['new', 'create', 'destroy']
-  get '/login' => 'sessions#new', as: 'login'
-  delete '/logout' => 'sessions#destroy', as: 'logout'
+  
   resources :posts
   resources :users
   resources :adverts

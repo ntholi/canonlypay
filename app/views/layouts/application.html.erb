@@ -18,8 +18,10 @@
             <span class="glyphicon glyphicon-shopping-cart nav-icon"></span><%= link_to 'Buy',  posts_path %></li>
           <li >
             <span class="glyphicon glyphicon-shop nav-icon"></span><%= link_to 'Sell', adverts_path  %></li>
+          <% if user_signed_in? %>
           <li >
-            <span class="glyphicon glyphicon-user nav-icon"></span><%= link_to "#{current_user.first_name}", logout_path, method: :delete %></li>
+            <span class="glyphicon glyphicon-user nav-icon"></span><%= link_to "#{current_user.first_name}", destroy_user_session_path, method: :delete %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
