@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :companies
-  validates :phone_number, presence: true
+  # validates :phone_number, presence: true
   validates_uniqueness_of :phone_number
 
   GENDER_TYPES = ["","Male", "Female", "Other"]

@@ -30,6 +30,12 @@
       <main class="row">
         <aside class="col-md-3"></aside>
         <div class="col-md-6">
+          <% flash.each do |name, msg| %>
+          <div class='alert alert-<%= "#{name}" %>'>
+            <a href="#" class="close" data-dismiss='alert' &#215;></a>
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+          </div>
+          <% end %>
           <%= yield %>
         </div>
         <aside class="col-md-3"></aside>
