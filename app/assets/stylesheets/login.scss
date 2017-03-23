@@ -6,9 +6,23 @@
 .login-area{
   #login-button{
     width: 80px;
+    float: right;
   }
 
-  #forgot-password{
-    margin-left: 5px;
+  #user_password{
+    width: 65%;
+    display: inline-block;
+  }
+
+  .login-actions{
+    font-size: .9em;
+
+    #remember-me{
+      margin-left: 5px;
+      display: inline-block;
+      label{
+        font-weight: normal;
+      }
+    }
   }
 }
