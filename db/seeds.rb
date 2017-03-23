@@ -8,6 +8,9 @@
 
 ProductCategory.destroy_all
 
+# User.create![
+# 	{first_name: "Thabo", last_name: "Lebese", email: "nkhatho@outlook.com", password: "111111"}
+# ]
 ProductCategory.create! [
 	{category: "Audio and Music", keywords: "Album"},
 	{category: "Movies and Video", keywords: "Batman, Superman, Star Wars, Lord of the Rings"},
