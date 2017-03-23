@@ -50,7 +50,7 @@ body{
         margin-bottom: -3px;
       }
     }
-    li:last-child{
+    li#profile-icon{
       float: right;
       margin-right: 35px;
     }
@@ -65,8 +65,8 @@ body{
   }
   .nav-icon{
     padding-left: 10px;
-    font-size: 18px;
-    color: $gray_700;
+    font-size: 19px;
+    color: $gray_600;
   }
 }
 

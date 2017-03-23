@@ -13,13 +13,13 @@
       <nav id="mainNav" class="row">
         <ul>
           <li >
-            <span class="glyphicon glyphicon-home nav-icon"></span><%= link_to 'NeedThat', home_index_path %></li>
+            <span class="glyphicon glyphicon-home nav-icon"></span><%= link_to 'Home', home_index_path %></li>
           <li >
+          <% if user_signed_in? %>
             <span class="glyphicon glyphicon-shopping-cart nav-icon"></span><%= link_to 'Buy',  posts_path %></li>
           <li >
-            <span class="glyphicon glyphicon-shop nav-icon"></span><%= link_to 'Sell', adverts_path  %></li>
-          <% if user_signed_in? %>
-          <li >
+            <span class="glyphicon glyphicon-briefcase nav-icon"></span><%= link_to 'Sell', adverts_path  %></li>
+          <li id="profile-icon">
             <span class="glyphicon glyphicon-user nav-icon"></span><%= link_to "#{current_user.first_name}", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
