@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   
   resources :posts
   resources :users
-  resources :adverts
+  resources :adverts do
+    resources :advert_comments
+  end
   resources :products
   resources :product_categories
   resources :companies

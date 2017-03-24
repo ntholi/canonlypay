@@ -1,0 +1,2 @@
+class AdvertCommentsController < ApplicationController
+end
