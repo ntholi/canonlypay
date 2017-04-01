@@ -32,6 +32,7 @@ class AdvertsController < ApplicationController
   def create
     @advert = Advert.new(advert_params)
     @advert.product = get_saved_product()
+    @advert.body = @advert.product.description
 
     respond_to do |format|
       if @advert.save
@@ -48,6 +49,7 @@ class AdvertsController < ApplicationController
   # PATCH/PUT /adverts/1.json
   def update
     @advert.product = get_saved_product()
+    @advert.body = @advert.product.description
 
     respond_to do |format|
       if @advert.update(advert_params)
