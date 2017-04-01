@@ -2,7 +2,7 @@
 	<%= render 'post', post: Post.new %>
 </section>
 <section>
-	<% @adverts.each do |advert| %>
+	<% @feed.each do |story| %>
 	<article class="post row">
 		<div class="col-xs-2">
 			<a href="#" class="thumbnail">
@@ -11,16 +11,15 @@
 		</div>
 		<div class="col-xs-10">
 			<header>
-				<span class="post-title"><%= advert.company %></span>
-				<span class="post-subtitle">
-					is selling</span>
+				<span class="post-title"><%= story.owner %></span>
+				<span class="post-subtitle"><%= story_action story %></span>
 				<br>
-				<span class="post-time"><%= time_ago_in_words(advert.updated_at).capitalize %>
+				<span class="post-time"><%= time_ago_in_words(story.updated_at).capitalize %>
 					ago</span>
 			</header>
-			<%= advert.product %>
-			<%= advert.company %>
-			<%= link_to 'More Info', advert %>
+			<p><%= story.product.summary %></p>
+			<p><%= story.body %>
+			<%= link_to 'More Info', story %></p>
 			<footer>
 				<a href="#">
 					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>

@@ -13,12 +13,12 @@ class PostsController < ApplicationController
   end
 
   def pre_create
-    content = params[:post][:content]
-    price = get_price(content)
-    product_name, category = get_product_and_category(content)
-    display_name = get_display_name(content)
+    body = params[:post][:body]
+    price = get_price(body)
+    product_name, category = get_product_and_category(body)
+    display_name = get_display_name(body)
 
-    redirect_to controller: 'posts', action: 'new', content: content, min_price: price, product_name: product_name, category: category, display_name: display_name
+    redirect_to controller: 'posts', action: 'new', body: body, min_price: price, product_name: product_name, category: category, display_name: display_name
   end
 
   # GET /posts/new
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     product = Product.new
     @post.min_price = params['min_price'] if params.has_key? :min_price
     @post.max_price = params['max_price'] if params.has_key? :max_price
-    @post.content = params['content'] if params.has_key? :content
+    @post.body = params['body'] if params.has_key? :body
     product.name = params['product_name'] if params.has_key? :product_name
     category = params['category'] if params.has_key? :category
     product.product_category = ProductCategory.find_by(category: category)
@@ -82,15 +82,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def get_price(content)
-    price = content[ /\d+(?:\.\d+)?/ ]
+  def get_price(body)
+    price = body[ /\d+(?:\.\d+)?/ ]
   end
 
   #extract product_name and product_category
-  def get_product_and_category(content)
+  def get_product_and_category(body)
     categ = "Other"
     product = ""
-    content.split(" ").each do |word|
+    body.split(" ").each do |word|
       category = ProductCategory.where("keywords LIKE ?", "%#{word}%")
       if category and category.first
         categ = category.first.category
@@ -100,10 +100,10 @@ class PostsController < ApplicationController
     return product.capitalize, categ
   end
 
-  def get_display_name(content)
+  def get_display_name(body)
     keyword = "my name is"
     name = ""
-    string = content.downcase
+    string = body.downcase
     if string.include? keyword
       name = string.partition(keyword).last.split.first.strip.capitalize
     end
@@ -128,6 +128,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:content, :min_price, :max_price, :user_id, :product_id)
+      params.require(:post).permit(:body, :min_price, :max_price, :user_id, :product_id)
     end
 end

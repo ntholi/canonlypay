@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :user
   accepts_nested_attributes_for :product
 
-  def to_s
-  	content
+  def owner
+    user.full_name
   end
 end

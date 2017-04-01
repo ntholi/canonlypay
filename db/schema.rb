@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170324115846) do
   create_table "adverts", force: :cascade do |t|
     t.integer  "company_id"
     t.integer  "product_id"
+    t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_adverts_on_company_id"
@@ -52,11 +53,11 @@ ActiveRecord::Schema.define(version: 20170324115846) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content"
     t.float    "min_price"
     t.float    "max_price"
     t.integer  "user_id"
     t.integer  "product_id"
+    t.text     "body"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "payable",    default: false

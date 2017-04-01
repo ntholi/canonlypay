@@ -34,8 +34,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 
 gem 'devise'
-
-gem 'rename'
+gem 'indefinite_article'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

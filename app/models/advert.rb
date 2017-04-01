@@ -4,4 +4,8 @@ class Advert < ApplicationRecord
   # accepts_nested_attributes_for :company
   accepts_nested_attributes_for :product
   has_many :advert_comments
+
+  def owner
+  	company
+  end
 end

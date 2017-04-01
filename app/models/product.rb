@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :posts
   # belongs_to :company, required: false
 
-  def to_s
-  	"#{name} @ R#{price}"
+  def summary
+  	"#{name.indefinite_article.capitalize} #{name} for R#{price}"
   end
 end
