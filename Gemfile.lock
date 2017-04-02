@@ -69,6 +69,10 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    happy_seed (0.0.21)
+      rack (~> 2.x)
+      rails (~> 5.0.0)
+      thor
     i18n (0.7.0)
     indefinite_article (0.2.4)
       activesupport
@@ -183,6 +187,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails
+  happy_seed
   indefinite_article
   jbuilder (~> 2.5)
   jquery-rails
