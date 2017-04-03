@@ -36,6 +36,7 @@ gem 'font-awesome-rails'
 gem 'indefinite_article'
 gem 'happy_seed'
 gem 'figaro'
+gem 'activerecord-session_store'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
