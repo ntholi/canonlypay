@@ -59,3 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'premailer-rails'
 gem 'nokogiri'
 gem 'devise', '~> 4.2'
+gem 'omniauth'
+gem 'omniauth-oauth2', '1.3.1'
