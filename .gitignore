@@ -22,3 +22,6 @@
 
 # Ignore vscode configuration
 /.vscode/*
+
+# Ignore application configuration
+/config/application.yml
