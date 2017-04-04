@@ -53,6 +53,9 @@ body{
     li#profile-icon{
       float: right;
       margin-right: 35px;
+      img{
+        height: 30px;
+      }
     }
     a{
       color: $gray_600;

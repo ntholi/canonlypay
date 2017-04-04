@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 20170403093717) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "display_name"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "gender"
