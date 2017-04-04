@@ -49,4 +49,12 @@ class User < ApplicationRecord
     end
   end
 
+  def facebook
+    identities.where( :provider => "facebook" ).first
+  end
+
+  def facebook_client
+    @facebook_client ||= Facebook.client( access_token: facebook.accesstoken )
+  end
+
 end
