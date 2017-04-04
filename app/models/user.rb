@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :oauth_callback
   attr_accessor :current_password
-    
+
   validates_presence_of   :email, if: :email_required?
   validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
   validates_format_of     :email, with: Devise.email_regexp, allow_blank: true, if: :email_changed?
@@ -34,6 +34,16 @@ class User < ApplicationRecord
 
   def full_name
   	"#{first_name} #{last_name}"
+  end
+
+  def display_name
+    name = first_name
+    if name.blank?
+      name = identities.first.name.split.first
+    elsif name.blank?
+      name = identities.first.nickname.split.first
+    end
+    return name
   end
 
   def twitter

@@ -16,9 +16,8 @@ class PostsController < ApplicationController
     body = params[:post][:body]
     price = get_price(body)
     product_name, category = get_product_and_category(body)
-    display_name = get_display_name(body)
 
-    redirect_to controller: 'posts', action: 'new', body: body, min_price: price, product_name: product_name, category: category, display_name: display_name
+    redirect_to controller: 'posts', action: 'new', body: body, min_price: price, product_name: product_name, category: category
   end
 
   # GET /posts/new
@@ -98,16 +97,6 @@ class PostsController < ApplicationController
       end
     end
     return product.capitalize, categ
-  end
-
-  def get_display_name(body)
-    keyword = "my name is"
-    name = ""
-    string = body.downcase
-    if string.include? keyword
-      name = string.partition(keyword).last.split.first.strip.capitalize
-    end
-    name
   end
 
   def get_saved_product
