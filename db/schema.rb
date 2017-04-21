@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20170403093717) do
     t.string   "location"
     t.date     "birthday"
     t.string   "phone_number"
+    t.string   "avatar"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: ""
