@@ -27,10 +27,10 @@ class User < ApplicationRecord
   has_many :posts
   has_many :companies
   # validates :phone_number, presence: true
-  validates_uniqueness_of :phone_number
+  # validates_uniqueness_of :phone_number
   validates_uniqueness_of :email
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :avatar, ImageUploader
 
   GENDER_TYPES = ["","Male", "Female", "Other"]
 
