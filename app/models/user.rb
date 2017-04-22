@@ -30,7 +30,7 @@ class User < ApplicationRecord
   # validates_uniqueness_of :phone_number
   validates_uniqueness_of :email
 
-  # mount_uploader :avatar, ImageUploader
+  mount_uploader :avatar, ImageUploader
 
   GENDER_TYPES = ["","Male", "Female", "Other"]
 
