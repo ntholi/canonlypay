@@ -1,0 +1,29 @@
+<section>
+	<% @feed.each do |story| %>
+	<article class="post row">
+		<div class="col-xs-2">
+			<a href="#" class="thumbnail">
+				<img src="https://placehold.it/60">
+			</a>
+		</div>
+		<div class="col-xs-10">
+			<header>
+				<span class="post-title"><%= story.owner %></span>
+				<span class="post-subtitle"><%= story_action story %></span>
+				<br>
+				<span class="post-time"><%= time_ago_in_words(story.updated_at).capitalize %>
+					ago</span>
+			</header>
+			<p><%= story.product.summary %></p>
+			<p><%= story.body %>
+			<%= link_to 'More Info', story %></p>
+			<footer>
+				<%= link_to story  do %>
+					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+					Respond
+				<% end %>
+			</footer>
+		</div>
+	</article>
+	<% end %>
+</section>

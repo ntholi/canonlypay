@@ -22,36 +22,17 @@
 
     <div class="container-fluid" id="loginBody">
       <main class="row">
-        <section class="col-md-8">
+        <div class="col-md-8">
           <% flash.each do |name, msg| %>
           <div class='alert alert-<%= "#{name}" %>'>
             <a href="#" class="close" data-dismiss='alert'>&#215;</a>
             <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
           </div>
           <% end %>
-          <% @adverts.each do |advert| %>
-          <article class="post row">
-            <div class="col-xs-2">
-              <a href="#" class="thumbnail">
-                <img src="https://placehold.it/60">
-              </a>
-            </div>
-            <div class="col-xs-10">
-              <header>
-                <span class="post-title"><%= advert.company %></span>
-                <span class="post-subtitle">
-                  is selling</span>
-                <br>
-                <span class="post-time"><%= time_ago_in_words(advert.updated_at).capitalize %>
-                  ago</span>
-              </header>
-              <%= advert.product %>
-              <%= advert.company %>
-              <%= link_to 'More Info', advert %>
-            </div>
-          </article>
-          <% end %>
-        </section>
+
+          <%= render 'home/feed' %>
+
+        </div>
         <section class="col-md-4">
           <%= yield %>
         </section>
