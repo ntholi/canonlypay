@@ -40,7 +40,9 @@ class User < ApplicationRecord
 
   def display_name
     name = first_name
-    if name.blank?
+    if name.blank? and identities.blank?
+      name = "Profile"
+    elsif name.blank?
       name = identities.first.name.split.first
     elsif name.blank?
       name = identities.first.nickname.split.first
