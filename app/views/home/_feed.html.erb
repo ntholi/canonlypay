@@ -9,7 +9,7 @@
 		<div class="col-xs-10">
 			<header>
 				<span class="post-title"><%= post.user.full_name %></span>
-				<span class="post-subtitle"><%= story_action post %></span>
+				<span class="post-subtitle"><%= post_action_string post %></span>
 				<br>
 				<span class="post-time"><%= time_ago_in_words(post.updated_at).capitalize %>
 					ago</span>
