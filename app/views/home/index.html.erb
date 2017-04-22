@@ -21,10 +21,10 @@
 			<p><%= story.body %>
 			<%= link_to 'More Info', story %></p>
 			<footer>
-				<a href="#">
+				<%= link_to story  do %>
 					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 					Respond
-				</a>
+				<% end %>
 			</footer>
 		</div>
 	</article>
