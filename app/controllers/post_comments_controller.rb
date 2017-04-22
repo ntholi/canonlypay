@@ -1,5 +1,5 @@
 class PostCommentsController < ApplicationController
-  before_action :set_post, only: [:creat, :destroy]
+  before_action :set_post, only: [:create, :destroy]
 
   def create
     @post_comment = @post.post_comments.new(post_comment_params)
@@ -18,7 +18,7 @@ class PostCommentsController < ApplicationController
  		@post_comment = @post.post_comments.find(params[:id])
     @post_comment.destroy
     respond_to do |format|
-      format.html { redirect_to post_comments_url, notice: 'PostComment was successfully destroyed.' }
+      format.html { redirect_to @post, notice: 'Comment deleted!' }
       format.json { head :no_content }
     end
   end
