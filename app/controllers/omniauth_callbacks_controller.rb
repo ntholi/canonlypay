@@ -13,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = @identity.user || current_user
 
     if @user.nil?
-      @user = User.create( email: @identity.email, remote_avatar_url: @identity.image.gsub('http://','https://'), oauth_callback: true )
+      @user = User.create( email: @identity.email, remote_avatar_url: @identity.image, oauth_callback: true )
       @identity.update_attribute( :user_id, @user.id )
     end
 
