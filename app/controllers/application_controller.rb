@@ -23,10 +23,6 @@ class ApplicationController < ActionController::Base
     end
 
     def prepere_data_for_loggedout_users
-      @feed = []
-      adverts = Advert.all
-      posts = Post.all
-      @feed += adverts
-      @feed += posts
+      @posts = Post.all
     end
 end

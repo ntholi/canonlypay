@@ -1,5 +1,5 @@
 <section>
-	<% @feed.each do |story| %>
+	<% @posts.each do |post| %>
 	<article class="post row">
 		<div class="col-xs-2">
 			<a href="#" class="thumbnail">
@@ -8,17 +8,17 @@
 		</div>
 		<div class="col-xs-10">
 			<header>
-				<span class="post-title"><%= story.owner %></span>
-				<span class="post-subtitle"><%= story_action story %></span>
+				<span class="post-title"><%= post.user.full_name %></span>
+				<span class="post-subtitle"><%= story_action post %></span>
 				<br>
-				<span class="post-time"><%= time_ago_in_words(story.updated_at).capitalize %>
+				<span class="post-time"><%= time_ago_in_words(post.updated_at).capitalize %>
 					ago</span>
 			</header>
-			<p><%= story.product.summary %></p>
-			<p><%= story.body %>
-			<%= link_to 'More Info', story %></p>
+			<p><%= post.product.summary %></p>
+			<p><%= post.body %>
+			<%= link_to 'More Info', post %></p>
 			<footer>
-				<%= link_to story  do %>
+				<%= link_to post  do %>
 					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
 					Respond
 				<% end %>
