@@ -36,9 +36,9 @@ class User < ApplicationRecord
 
   def full_name
   	name = "#{first_name} #{last_name}"
-    if name.blank?
+    if name.blank? and !identities.blank?
       name = identities.first.name
-    elsif name.blank?
+    elsif name.blank? and !identities.blank?
       name = identities.first.nickname
     end
     return name
