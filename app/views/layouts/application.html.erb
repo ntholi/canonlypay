@@ -20,7 +20,7 @@
           <li >
             <span class="glyphicon glyphicon-briefcase nav-icon"></span><%= link_to 'Sell', adverts_path  %></li>
           <li id="profile-icon">
-            <%= image_tag "avatar.png", class: "img-circle" %>
+            <%= image_tag profile_picture(current_user), class: "img-circle" %>
             <%= link_to "#{current_user.display_name}", destroy_user_session_path, method: :delete %>
           </li>
           <% end %>
