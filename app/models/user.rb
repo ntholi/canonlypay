@@ -35,7 +35,13 @@ class User < ApplicationRecord
   GENDER_TYPES = ["","Male", "Female", "Other"]
 
   def full_name
-  	"#{first_name} #{last_name}"
+  	name = "#{first_name} #{last_name}"
+    if name.blank?
+      name = identities.first.name
+    elsif name.blank?
+      name = identities.first.nickname
+    end
+    return name
   end
 
   def display_name
