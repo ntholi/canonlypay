@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
   resources :adverts do
-    resources :advert_comments
+    resources :advert_comments, only: [:create, :destroy]
   end
   resources :products
   resources :product_categories
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       post :pre_create
     end
+    resources :post_comments, only: [:create, :destroy]
   end
 
   get 'home/index'
