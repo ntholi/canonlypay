@@ -139,3 +139,12 @@ main{
 .control-label{
   font-weight: normal;
 }
+
+@media (max-width: 570px) {
+  main{
+    padding: 0;
+  }
+  .post-profile-pic-area{
+    display: none;
+  }
+}

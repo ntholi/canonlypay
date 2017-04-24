@@ -1,8 +1,8 @@
 <section>
 	<% @posts.each do |post| %>
 	<article class="post row">
-		<div class="col-xs-2">
-			<a href="#" class="thumbnail">
+		<div class="col-xs-2 post-profile-pic-area">
+			<a href="#" class="post-profile-pic">
 				<%= image_tag profile_picture(post.user) %>
 			</a>
 		</div>
@@ -16,11 +16,11 @@
 			</header>
 			<p><%= post.product.summary %></p>
 			<p><%= post.body %>
-			<%= link_to 'More Info', post %></p>
+				<%= link_to 'More Info', post %></p>
 			<footer>
 				<%= link_to post  do %>
-					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-					Respond
+				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+				Respond
 				<% end %>
 			</footer>
 		</div>
