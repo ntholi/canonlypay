@@ -92,8 +92,6 @@ main{
 }
 
 .post{
-  padding: $vertical_spacing;
-  padding-bottom: 0;
   margin-left: -3px;
   margin-right: -3px;
 
@@ -124,16 +122,13 @@ main{
   }
 }
 
-.alert, .form-container, aside, footer, article{
+.alert, .card {
   background-color: white;
+  padding: $vertical_spacing;
   margin-bottom: $vertical_spacing;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-}
-
-.form-container{
-  padding: 15px;
 }
 
 .control-label{
@@ -147,4 +142,4 @@ main{
   .post-profile-pic-area{
     display: none;
   }
-} 
+}

@@ -1,6 +1,6 @@
 <section>
 	<% @posts.each do |post| %>
-	<article class="post row">
+	<article class="row post card">
 		<div class="col-xs-2 post-profile-pic-area">
 			<a href="#" class="thumbnail post-profile-pic">
 				<%= image_tag profile_picture(post.user) %>
