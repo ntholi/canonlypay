@@ -29,7 +29,7 @@ class PostCommentsController < ApplicationController
     def create_notification(comment)
       notification = Notification.new
       notification.content = "#{comment.owner} commented on your post"
-      notification.link = post_post_comment_path(comment)
+      notification.link = post_post_comment_url(@post, comment)
       notification.save
     end
     # Use callbacks to share common setup or constraints between actions.
