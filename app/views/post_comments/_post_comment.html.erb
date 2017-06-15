@@ -1,5 +1,6 @@
 <article class="comment">
-	<strong><%= post_comment.user.display_name %></strong>
+	<strong><%= post_comment.owner %></strong>
 	<%= simple_format post_comment.comment %>
+	<%= link_to "show", post_post_comment_path(post_comment) %>
 	<%= link_to "Delete", [@post, post_comment], method: :delete%>
 </article>

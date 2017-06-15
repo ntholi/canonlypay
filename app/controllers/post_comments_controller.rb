@@ -6,6 +6,7 @@ class PostCommentsController < ApplicationController
     @post_comment.user = current_user
     respond_to do |format|
       if @post_comment.save
+        create_notification(@post_comment)
         format.html { redirect_to @post, notice: 'Comment was successfully added.' }
         format.json { render :show, status: :created, location: @post_comment }
       else
@@ -24,7 +25,13 @@ class PostCommentsController < ApplicationController
     end
   end
 
-    private
+  private
+    def create_notification(comment)
+      notification = Notification.new
+      notification.content = "#{comment.owner} commented on your post"
+      notification.link = post_post_comment_path(comment)
+      notification.save
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:post_id])
