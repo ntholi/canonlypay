@@ -3,6 +3,7 @@ class PostCommentsController < ApplicationController
 
   def create
     @post_comment = @post.post_comments.new(post_comment_params)
+    @post_comment.user = current_user
     respond_to do |format|
       if @post_comment.save
         format.html { redirect_to @post, notice: 'Comment was successfully added.' }
