@@ -30,6 +30,7 @@ class PostCommentsController < ApplicationController
       notification = Notification.new
       notification.content = "#{comment.owner} commented on your post"
       notification.link = post_url(@post)
+      notification.user = @post.user
       notification.save
     end
     # Use callbacks to share common setup or constraints between actions.
