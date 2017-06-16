@@ -32,6 +32,7 @@ class PostCommentsController < ApplicationController
       notification.link = post_url(@post)
       notification.user = @post.user
       notification.save
+      notification.update(link: notification.link++"?notif=#{notification.id}")
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_post

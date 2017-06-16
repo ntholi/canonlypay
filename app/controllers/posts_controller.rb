@@ -10,6 +10,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if params['notif']
+      notification = Notification.find(params['notif'])
+      if notification
+        notification.update(read: true)
+      end
+    end
   end
 
   def pre_create
