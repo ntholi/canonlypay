@@ -27,12 +27,14 @@ class PostCommentsController < ApplicationController
 
   private
     def create_notification(comment)
-      notification = Notification.new
-      notification.content = "#{comment.owner} commented on your post"
-      notification.link = post_url(@post)
-      notification.user = @post.user
-      notification.save
-      notification.update(link: notification.link++"?notif=#{notification.id}")
+      unless @post.user == current_user
+        notification = Notification.new
+        notification.content = "#{comment.owner} commented on your post"
+        notification.link = post_url(@post)
+        notification.user = @post.user
+        notification.save
+        notification.update(link: notification.link++"?notif=#{notification.id}")
+      end
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
