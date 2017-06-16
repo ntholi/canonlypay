@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
+
   resources :notifications
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations',  }
   resources :posts
-  resources :users
+  # resources :users
   resources :adverts do
     resources :advert_comments, only: [:create, :destroy]
   end
