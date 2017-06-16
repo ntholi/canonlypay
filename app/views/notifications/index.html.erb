@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
+<section class="card">
 
-<h1>Notifications</h1>
+  <h1>Notifications</h1>
 
-<% @notifications.each do |notification| %>
-<%= notification.content %>
-<%= link_to 'Show', notification.link %>
-<%= link_to 'Delete', notification, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-
-<br>
+  <% @notifications.each do |notification| %>
+  <%= link_to notification.content, notification.link %>
+  <%= link_to '(Delete)', notification, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</section>
