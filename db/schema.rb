@@ -64,8 +64,9 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.string   "content"
     t.string   "link"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "read",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 

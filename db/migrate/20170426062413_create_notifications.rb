@@ -5,6 +5,7 @@ class CreateNotifications < ActiveRecord::Migration[5.0]
       t.string :link
       t.references :user, foreign_key: true #The user which this notification is
       # derected to
+      t.boolean :read, default: false
 
       t.timestamps
     end

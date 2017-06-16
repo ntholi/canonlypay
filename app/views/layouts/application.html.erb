@@ -17,7 +17,7 @@
           <li >
             <% if user_signed_in? %>
             <span class="glyphicon glyphicon-bell nav-icon"></span><%= link_to 'Notifications',  notifications_path %>
-            <span class="notifications-badge badge"><%= notifications_count %></span>
+            <%= notifications_badge %>
           </li>
           <li >
             <span class="glyphicon glyphicon-bullhorn nav-icon"></span><%= link_to 'Advertise', adverts_path  %></li>
