@@ -16,7 +16,9 @@
             <span class="glyphicon glyphicon-home nav-icon"></span><%= link_to 'Home', home_index_path %></li>
           <li >
             <% if user_signed_in? %>
-            <span class="glyphicon glyphicon-bell nav-icon"></span><%= link_to 'Notifications',  notifications_path %></li>
+            <span class="glyphicon glyphicon-bell nav-icon"></span><%= link_to 'Notifications',  notifications_path %>
+            <span class="notifications-badge badge"><%= notifications_count %></span>
+          </li>
           <li >
             <span class="glyphicon glyphicon-bullhorn nav-icon"></span><%= link_to 'Advertise', adverts_path  %></li>
           <li id="profile-icon">

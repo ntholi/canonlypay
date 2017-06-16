@@ -169,6 +169,13 @@ main{
   font-weight: normal;
 }
 
+.notifications-badge {
+  background: $blue_500;
+  position: relative;
+  left: -20px;
+  top: -10px;
+}
+
 @media (max-width: 570px) {
   main{
     padding: 0;
