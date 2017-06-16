@@ -1,5 +1,17 @@
 <section class="card">
-  <section>
+  <section class="post">
+    <div class="col-xs-2 post-profile-pic-area">
+      <a href="#" class="thumbnail post-profile-pic">
+        <%= image_tag profile_picture(@post.user) %>
+      </a>
+    </div>
+    <header>
+      <span class="post-title"><%= @post.user.full_name %></span>
+      <span class="post-subtitle"><%= post_action_string @post %></span>
+      <br>
+      <span class="post-time"><%= time_ago_in_words(@post.updated_at).capitalize %>
+        ago</span>
+    </header>
     <%= @post.body %>
   </section>
 

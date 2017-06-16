@@ -122,6 +122,40 @@ main{
   }
 }
 
+.comment{
+  border-bottom: 1px solid lighten( $gray_400, 20% );
+  padding-top: 10px;
+  padding-bottom: 5px;
+
+  .comment-profile-pic {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+
+  header{
+    margin-bottom: $vertical_spacing / 3;
+    .comment-title{
+      font-weight: bold;
+    }
+    .comment-time{
+      color: $gray_500;
+    }
+    .comment-time{
+      font-size: .8em;
+    }
+  }
+
+  .delete{
+    float: right;
+    a {
+      color: $gray_500;
+      font-size: .9em;
+    }
+  }
+}
+
 .alert, .card {
   background-color: white;
   padding: $vertical_spacing;
@@ -139,7 +173,8 @@ main{
   main{
     padding: 0;
   }
-  .post-profile-pic-area{
+  .post-profile-pic-area,
+  .comment-profile-pic {
     display: none;
   }
 }

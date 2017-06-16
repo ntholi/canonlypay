@@ -1,5 +1,14 @@
-<article class="comment">
-	<strong><%= post_comment.owner %></strong>
+<article class="comment clearfix">
+	<div class="comment-profile-pic">
+		<a href="#" class="thumbnail">
+			<%= image_tag profile_picture(@post.user) %>
+		</a>
+	</div>
+	<header>
+		<span class="comment-title"><%= post_comment.owner %></span>
+		<span class="comment-time"><%= time_ago_in_words(post_comment.updated_at).capitalize %>
+			ago</span>
+	</header>
+	<span class="delete close"><%= link_to "x", [@post, post_comment], method: :delete%></span>
 	<%= simple_format post_comment.comment %>
-	<%= link_to "Delete", [@post, post_comment], method: :delete%>
 </article>
