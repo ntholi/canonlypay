@@ -9,6 +9,8 @@
 		<span class="comment-time"><%= time_ago_in_words(post_comment.updated_at).capitalize %>
 			ago</span>
 	</header>
+	<% if post_comment.user == current_user || @post.user == current_user %>
 	<span class="delete close"><%= link_to "x", [@post, post_comment], method: :delete%></span>
+	<% end %>
 	<%= simple_format post_comment.comment %>
 </article>
