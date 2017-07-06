@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.integer  "user_id"
     t.integer  "product_id"
     t.text     "body"
+    t.string   "city"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "payable",    default: false
