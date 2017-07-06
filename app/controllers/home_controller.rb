@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-  	@posts = Post.all
+    if(params[:city])
+      @posts = Post.where(city: params[:city]).order('created_at DESC')
+    else
+      @posts = Post.all.order('created_at DESC')
+    end
   end
 end
