@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20170426062413) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "advert_comments", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "comment"
     t.integer  "advert_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["advert_id"], name: "index_advert_comments_on_advert_id"
-    t.index ["user_id"], name: "index_advert_comments_on_user_id"
+    t.index ["advert_id"], name: "index_advert_comments_on_advert_id", using: :btree
+    t.index ["user_id"], name: "index_advert_comments_on_user_id", using: :btree
   end
 
   create_table "adverts", force: :cascade do |t|
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_adverts_on_company_id"
-    t.index ["product_id"], name: "index_adverts_on_product_id"
+    t.index ["company_id"], name: "index_adverts_on_company_id", using: :btree
+    t.index ["product_id"], name: "index_adverts_on_product_id", using: :btree
   end
 
   create_table "companies", force: :cascade do |t|
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
+    t.index ["user_id"], name: "index_companies_on_user_id", using: :btree
   end
 
   create_table "identities", force: :cascade do |t|
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "secrettoken"
-    t.index ["user_id"], name: "index_identities_on_user_id"
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.boolean  "read",       default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_photos_on_product_id"
+    t.index ["product_id"], name: "index_photos_on_product_id", using: :btree
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -85,8 +88,8 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_post_comments_on_post_id"
-    t.index ["user_id"], name: "index_post_comments_on_user_id"
+    t.index ["post_id"], name: "index_post_comments_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_post_comments_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -99,8 +102,8 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "payable",    default: false
-    t.index ["product_id"], name: "index_posts_on_product_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["product_id"], name: "index_posts_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -118,7 +121,7 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.text     "description"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.index ["product_category_id"], name: "index_products_on_product_category_id"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -126,8 +129,8 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
-    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+    t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -150,8 +153,21 @@ ActiveRecord::Schema.define(version: 20170426062413) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_users_on_email"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "advert_comments", "adverts"
+  add_foreign_key "advert_comments", "users"
+  add_foreign_key "adverts", "companies"
+  add_foreign_key "adverts", "products"
+  add_foreign_key "companies", "users"
+  add_foreign_key "identities", "users"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "photos", "products"
+  add_foreign_key "post_comments", "posts"
+  add_foreign_key "post_comments", "users"
+  add_foreign_key "posts", "products"
+  add_foreign_key "posts", "users"
+  add_foreign_key "products", "product_categories"
 end
